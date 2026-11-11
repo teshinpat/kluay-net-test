@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ทดสอบต่อเครื่อง</title>
+<style>
+:root{--bg:#f3ead2;--ink:#2b1d14;--ok:#2f8a3e;--bad:#c2452f}
+body{margin:0;padding:16px;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+.card{background:#fff8e6;border:3px solid var(--ink);padding:12px;margin:0 0 12px;max-width:560px}
+input,button{font:inherit;padding:8px 12px;border:3px solid var(--ink);background:#fff}
+button{background:#e0702e;color:#fff;cursor:pointer}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+#log{font:12px/1.4 monospace;white-space:pre-wrap;max-height:200px;overflow:auto}
+</style></head><body>
+<div class="card"><b>ทดสอบเล่นหลายเครื่อง</b><br><small>ต้องเปิดผ่านเว็บ https หรือ localhost (เปิดเป็นไฟล์ตรง ๆ บางเบราว์เซอร์จะใช้ไม่ได้)</small><br>เปิดหน้านี้ 2–4 เครื่อง ใส่รหัสกลุ่มเดียวกัน แล้วกดเข้า
+<p><input id="code" maxlength="8" placeholder="รหัสกลุ่ม เช่น KL7Q"> <button id="go">เข้ากลุ่ม</button></p>
+<p id="st">ยังไม่ได้เข้ากลุ่ม</p></div>
+<div class="card"><b>ในกลุ่ม</b><div id="peers">–</div></div>
+<div class="card"><b>ผลทดสอบ</b> <small>(เครื่อง host ส่งข้อมูลเกมจำลอง ~3 KB วิละ 10 ครั้ง)</small><div id="stats">–</div></div>
+<div class="card"><div id="log"></div></div>
+<script type="module">
+import {joinRoom, selfId} from 'https://cdn.jsdelivr.net/npm/trystero@0.25.4/+esm';
+const $=id=>document.getElementById(id), log=t=>{$('log').textContent=new Date().toLocaleTimeString()+' '+t+'\n'+$('log').textContent;};
+let room, peers={}, isHost=false, got=0, lastSeq=0, lost=0, bytes=0, pings={};
+// รุ่นทดสอบ: ยังไม่ใส่ TURN สำรอง ดูก่อนว่า Wi-Fi สถานที่ต่อตรงได้ไหม
+$('go').onclick=()=>{
+  const code=$('code').value.trim().toUpperCase(); if(!code){alert('ใส่รหัสกลุ่มก่อน');return;}
+  if(room) room.leave();
+  room=joinRoom({appId:'kluay-om-camp-test'}, code);
+  $('st').innerHTML=`เข้ากลุ่ม <b>${code}</b> แล้ว · รอเพื่อน… <small>(ฉัน: ${selfId.slice(0,6)})</small>`;
+  log('join '+code);
+  // API รุ่น 0.25: action.send(data,{target}) / action.onMessage = (data,{peerId})
+  const state=room.makeAction('state'), pingA=room.makeAction('ping'), pongA=room.makeAction('pong');
+  const decideHost=()=>{ const ids=[selfId,...Object.keys(peers)].sort(); isHost=ids[0]===selfId; render(); };
+  room.onPeerJoin = id=>{ peers[id]={t:Date.now()}; log('มีคนเข้า '+id.slice(0,6)); decideHost(); };
+  room.onPeerLeave = id=>{ delete peers[id]; log('มีคนออก '+id.slice(0,6)); decideHost(); };
+  state.onMessage = d=>{ got++; bytes+=JSON.stringify(d).length; if(lastSeq && d.seq>lastSeq+1) lost+=d.seq-lastSeq-1; lastSeq=d.seq; };
+  pingA.onMessage = (d,{peerId})=>pongA.send(d,{target:peerId});
+  pongA.onMessage = (d,{peerId})=>{ pings[peerId]=Date.now()-d; };
+  let seq=0; const fake='x'.repeat(3000);
+  setInterval(()=>{ if(isHost && Object.keys(peers).length) state.send({seq:++seq, t:Date.now(), pad:fake}); },100);
+  setInterval(()=>{ for(const id of Object.keys(peers)) pingA.send(Date.now(),{target:id}); render(); },2000);
+  let lastGot=0; setInterval(()=>{ const rate=got-lastGot; lastGot=got;
+    $('stats').innerHTML = isHost ? `ฉันเป็น <b>host</b> กำลังส่งข้อมูลให้ ${Object.keys(peers).length} คน`
+      : (got ? `รับข้อมูลจาก host <span class="${rate>=8?'ok':'bad'}">${rate} ครั้ง/วินาที</span> · หาย ${lost} ครั้ง · รับไปแล้ว ${(bytes/1e6).toFixed(1)} MB` : 'ยังไม่ได้รับข้อมูลจาก host'); },1000);
+  decideHost();
+};
+function render(){
+  const ids=Object.keys(peers);
+  $('peers').innerHTML = `<p>${isHost?'👑 ':''}ฉัน (${selfId.slice(0,6)})${isHost?' = host':''}</p>` + ids.map(id=>`<p>${id.slice(0,6)} · ping <span class="${pings[id]<150?'ok':'bad'}">${pings[id]??'…'} ms</span></p>`).join('')
+    + `<p class="${ids.length?'ok':''}">รวม ${ids.length+1} เครื่อง</p>`;
+}
+</script>
+</body></html>
