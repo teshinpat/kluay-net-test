@@ -45,7 +45,7 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .center{text-align:center}
 .hud{display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:#fff;margin:4px}
-.chip{background:var(--ink);color:#fff;padding:5px 10px;font-family:'Press Start 2P','Mitr',sans-serif;font-size:13px;line-height:1.5;
+.chip{background:var(--ink);color:#fff;padding:5px 10px;font-family:'Press Start 2P','Mitr',sans-serif;font-size:14px;line-height:1.5;
   box-shadow:0 -3px 0 0 #000,0 3px 0 0 #000,-3px 0 0 0 #000,3px 0 0 0 #000}
 .chip.warn{background:var(--bad)}
 .timebar{flex:1;min-width:140px;height:18px;background:#2b1d14}
@@ -53,16 +53,16 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
 .quest{display:flex;gap:10px;align-items:center;background:var(--ink);color:#fff;padding:8px 12px;margin:16px 4px 0;min-height:44px;
   box-shadow:0 -4px 0 0 #000,0 4px 0 0 #000,-4px 0 0 0 #000,4px 0 0 0 #000}
 .quest b{font-family:'Mitr',sans-serif;font-weight:600;color:#f5c542;white-space:nowrap}
-.quest.tut{background:#fff3cf;color:var(--ink);flex-direction:column;align-items:flex-start;gap:2px;
+.quest.tut{background:#fff3cf;color:var(--ink);
   box-shadow:0 -4px 0 0 var(--accent),0 4px 0 0 var(--accent),-4px 0 0 0 var(--accent),4px 0 0 0 var(--accent)}
-.quest.tut b{color:var(--accent)} .quest.tut .big2{font-size:18px;font-weight:600} .quest.tut small{color:var(--ink-soft)}
+.quest.tut b{color:#a84a14;font-size:13px} .quest.tut .big2{font-size:16px;font-weight:600;line-height:1.35} .quest.tut small{color:var(--ink-soft)}
 /* กันหน้าโยก (ผู้ใช้แจ้ง 10 พ.ย.): กล่องภารกิจ/บทสอน/ปุ่มงานถูกวาดใหม่ทุก 0.1 วิ
    ถ้าความสูงเปลี่ยนตามข้อความ (บรรทัดเหรียญหล่น นับถอยหลัง ปุ่มเพิ่ม/หาย) แผนที่ทั้งแผ่นจะเลื่อนขึ้นลง
    จึงล็อกความสูงไว้ และให้ข้อความยาวตัดท้ายแทนการดันกล่อง */
-#quest{height:116px;display:flex;align-items:flex-end}
+#quest{height:56px;display:flex;align-items:flex-end}
 #quest .quest{width:100%;height:100%;overflow:hidden;margin-top:0}
 #quest .quest:not(.tut){height:52px}
-#act{height:118px;overflow:hidden}
+#act{min-height:118px}   /* อยู่ล่างสุด สูงตามปุ่มได้ ไม่ดันแผนที่ (เดิมล็อกความสูงแล้วปุ่มแถว 3 โดนตัด)*/
 /* ช่องของในตัว (ผู้ใช้ขอ 10 พ.ย.): ของในมือ 1 ช่อง + ใบออเดอร์ที่รับแล้วแต่ยังไม่ได้ส่ง พร้อมเวลาที่เหลือก่อนเลยเป้า 90 วิ
    แสดงอย่างเดียว ไม่เปลี่ยนกติกา · ล็อกความสูงกันหน้าโยก */
 #inv{display:flex;gap:10px;align-items:center;background:var(--panel);margin:18px 4px 0;padding:6px 10px;height:74px;overflow:hidden;
@@ -70,7 +70,7 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
 .slot{width:52px;height:52px;flex:none;background:#e9d7a8;display:flex;align-items:center;justify-content:center;position:relative;
   box-shadow:inset 0 0 0 3px var(--ink),inset 4px 4px 0 0 rgba(0,0,0,.12)}
 .slot .spr{width:80%;height:80%}
-.slot .n{position:absolute;right:3px;bottom:2px;font:10px 'Press Start 2P',monospace;color:#fff;background:var(--ink);padding:1px 2px}
+.slot .n{position:absolute;right:3px;bottom:2px;font:12px 'Press Start 2P',monospace;color:#fff;background:var(--ink);padding:1px 2px}
 .rcpt{width:46px;height:58px;flex:none;background:#fff6d8;position:relative;text-align:center;font:8px/1.4 'Press Start 2P',monospace;
   box-shadow:inset 0 0 0 2px var(--ink);padding-top:3px}
 .rcpt .spr{width:22px;height:22px;margin:0 auto}
@@ -78,8 +78,8 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
 .inv-label{font:600 12px 'Mitr',sans-serif;color:var(--ink-soft);writing-mode:horizontal-tb;flex:none}
 .receipts{display:flex;gap:6px;overflow:hidden;flex:1}
 .hud{min-height:44px;flex-wrap:nowrap} .hud .chip{white-space:nowrap}
-.hud button{min-width:96px}
-@media (max-width:600px){ #quest{height:140px} #act{height:150px} .hud{flex-wrap:wrap;min-height:90px} }
+.hud button{min-width:96px;min-height:44px}
+@media (max-width:600px){ #quest{height:56px} #act{min-height:150px} .hud{flex-wrap:wrap;min-height:90px} }
 
 .wrap{position:relative;margin:18px auto;width:calc(var(--t) * var(--w))}
 .map{display:grid;grid-template-columns:repeat(var(--w), var(--t));touch-action:manipulation;user-select:none;
@@ -88,10 +88,17 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
   display:flex;align-items:center;justify-content:center}
 .tile:hover{outline:2px dashed rgba(255,255,255,.7);outline-offset:-3px}
 .tile.mark::after{content:'';position:absolute;inset:30%;background:rgba(122,85,32,.25)}
+.ai{display:inline-block;position:relative;width:30px;height:30px;vertical-align:middle;margin:-4px 8px -4px -2px}
+.ai i{position:absolute;inset:0;background-size:100% 100%;image-rendering:pixelated}
+.ai .f1{animation:aion .5s steps(1) infinite}.ai .f2{animation:aiflip .5s steps(1) infinite}
+.ai .arr{inset:auto -6px -6px auto;width:66%;height:66%}
+.ai .arUp{animation:arup .6s steps(2) infinite}.ai .arDown{animation:ardn .6s steps(2) infinite}.ai .arRight{animation:arrt .6s steps(2) infinite}
+@keyframes aion{0%{opacity:1}50%{opacity:0}}@keyframes aiflip{0%{opacity:0}50%{opacity:1}}
+@keyframes arup{to{transform:translateY(-4px)}}@keyframes ardn{to{transform:translateY(4px)}}@keyframes arrt{to{transform:translateX(4px)}}
 .spr{display:block;width:88%;height:88%;background-size:100% 100%;image-rendering:pixelated;image-rendering:crisp-edges}
 /* ป้ายชื่อใต้ sprite: กว้างตามข้อความ จัดกลางช่อง ล้นออกนอกช่องได้ ไม่ถูกตัด (ผู้ใช้แจ้ง 11 พ.ย.)
    เดิม left:0 right:0 + overflow:hidden ชื่อยาวอย่าง "ราวออเดอร์" "กระทะทอด" โดนตัดครึ่ง */
-.label{position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);text-align:center;font:500 9px/1.35 'Mitr',sans-serif;color:#fff;
+.label{position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);text-align:center;font:500 11px/1.3 'Mitr',sans-serif;color:#fff;
   background:var(--ink);white-space:nowrap;padding:0 3px;z-index:4;pointer-events:none}
 .tile{overflow:visible}
 /* ชั้นของที่ขยับ (ตัวละคร ป้าย แถบเวลา) ทับแผนที่ วาดใหม่ทุกเฟรมแยกจากพื้น ไม่ต้องวาดแผนที่ทั้งแผ่นใหม่ */
@@ -99,25 +106,41 @@ button.go{background:var(--accent);color:#fff;font-size:18px}
 .at{position:absolute;width:var(--t);height:var(--t)}
 .goal{outline:4px solid #f5c542;outline-offset:-4px;animation:blink .8s steps(2) infinite}
 @keyframes blink{50%{outline-color:#e0702e}}
-.badge{position:absolute;top:0;right:0;background:var(--bad);color:#fff;font:9px/15px 'Press Start 2P',monospace;padding:0 3px;z-index:2;box-shadow:0 0 0 2px var(--ink)}
+.badge{position:absolute;top:0;right:0;background:var(--bad);color:#fff;font:11px/17px 'Press Start 2P',monospace;padding:0 3px;z-index:2;box-shadow:0 0 0 2px var(--ink)}
 .prog{position:absolute;left:6%;right:6%;height:7px;background:#2b1d14;box-shadow:0 0 0 2px #000;z-index:3}
 .prog i{display:block;height:100%;background:#7bd14a}
 .prog.busy i{background:#f5c542}
 .hero{position:absolute;width:var(--t);height:var(--t);display:flex;align-items:center;justify-content:center;transition:left .2s linear, top .2s linear;z-index:3}
+.hero:has(.say){z-index:12}   /* กล่องคำพูดต้องอยู่เหนือป้ายชื่อจุดต่าง ๆ */
 .hero .spr{width:92%;height:92%}
-.hero.bob .spr{transform:translateY(-3px)}
+.hero>.hv,.hero>.hpg,.hero>.hs{display:contents}
+.hero.bob .spr{transform:translateY(-6%)}
 .hero .hand{position:absolute;right:-6%;top:-10%;width:46%;height:46%}
+/* กล่องคำพูดแบบการ์ตูน (ผู้ใช้ขอ 11 พ.ย.): ขึ้นบนหัวตอนเดินไปผิดที่หรือขาดของ */
+.say{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:9;background:#fff;color:#2b1d14;border:3px solid #2b1d14;
+  border-radius:16px;padding:5px 10px;font:600 15px/1.35 'Mitr',sans-serif;width:max-content;max-width:min(70vw,260px);text-align:center;
+  box-shadow:3px 3px 0 #2b1d14;animation:pop .18s steps(3)}
+.say::after{content:'';position:absolute;top:100%;left:var(--tail,50%);transform:translateX(-50%);border:8px solid transparent;border-top-color:#2b1d14}
+.say.l{left:0;transform:none;--tail:18px} .say.r{left:auto;right:0;transform:none;--tail:calc(100% - 18px)}
+@keyframes pop{from{transform:translateX(-50%) scale(.6)}to{transform:translateX(-50%) scale(1)}}
+.say.l,.say.r{animation:none}
+.say.tutsay{border-color:var(--accent);box-shadow:3px 3px 0 var(--accent);animation:none}.say.tutsay::after{border-top-color:var(--accent)}
+.say.dn{bottom:auto;top:calc(100% + 10px)}.say.dn::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#2b1d14}.say.tutsay.dn::after{border-bottom-color:var(--accent)}
+button.off{opacity:.45;cursor:help}
+@media (prefers-reduced-motion:reduce){.say{animation:none}}
 /* ของเสียกองอยู่ฝั่งซ้ายของจุด */
 .at>.spr.hand.trash{right:auto;left:4%;bottom:28%}
 .at>.spr.hand{position:absolute;right:4%;bottom:28%;width:44%;height:44%;animation:hop .6s steps(2) infinite}
+.at>.spr.hand.still{animation:none;width:40%;height:40%}
 .pointer{position:absolute;z-index:5;transform:translate(-50%,-100%);background:var(--accent);color:#fff;font:600 12px 'Mitr',sans-serif;
   padding:2px 8px;white-space:nowrap;animation:hop .6s steps(2) infinite;box-shadow:0 -3px 0 0 var(--ink),0 3px 0 0 var(--ink),-3px 0 0 0 var(--ink),3px 0 0 0 var(--ink)}
 @keyframes hop{50%{margin-top:-4px}}
 .float{position:absolute;z-index:6;pointer-events:none;animation:up 1s steps(8) forwards}
 @keyframes up{from{transform:translateY(0);opacity:1}to{transform:translateY(-40px);opacity:0}}
-.coin{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin:3px;background:var(--coin);color:#5a3a06;
-  font:10px 'Press Start 2P',monospace;box-shadow:0 -3px 0 0 var(--coin-d),0 3px 0 0 var(--coin-d),-3px 0 0 0 var(--coin-d),3px 0 0 0 var(--coin-d),inset -3px -3px 0 0 rgba(0,0,0,.15)}
+.coin{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin:3px;background:var(--coin);color:#5a3a06;
+  font:12px 'Press Start 2P',monospace;box-shadow:0 -3px 0 0 var(--coin-d),0 3px 0 0 var(--coin-d),-3px 0 0 0 var(--coin-d),3px 0 0 0 var(--coin-d),inset -3px -3px 0 0 rgba(0,0,0,.15)}
 .jar{display:flex;flex-wrap:wrap;gap:4px}
+.jarbar{display:flex;align-items:center;gap:10px;padding:4px 10px;min-height:36px;margin-top:0;margin-bottom:6px}.jarbar>b{white-space:nowrap;font-size:14px}
 .action{min-height:60px}
 .big{font-size:26px;font-weight:600}
 table{border-collapse:collapse;width:100%}
@@ -137,6 +160,69 @@ select,input[type=text]{font:inherit;padding:6px 8px;margin:4px;background:#fff;
 .strip{display:flex;gap:10px;justify-content:center;align-items:center;margin:8px 0}
 .strip .spr{width:48px;height:48px}
 .strip b{font:600 18px 'Mitr',sans-serif}
+
+/* ตรวจ a11y + game UI (11 พ.ย.) */
+.go{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 6px;margin:4px 0 0;scrollbar-width:thin}
+.go .gob{flex:none;min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;font-size:14px;white-space:nowrap}
+.go .gob .spr{width:24px;height:24px}
+.go .gob.tgt{background:#a84a14;color:#fff}   /* ส้มเข้ม: ตัวขาวบนส้มปกติ contrast แค่ 3.2 */
+.go .gob.here{box-shadow:inset 0 0 0 3px var(--ok,#2f8a3e)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:600px){ .keys{display:none} }   /* มือถือไม่มีคีย์บอร์ด ประหยัดที่ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important}
+  .ai .f2{display:none}
+}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 6px;margin:8px 0;text-align:center}
+.flow .fs{position:relative;background:#fff8e6;border:3px solid var(--ink);padding:8px 0 4px;font:600 12px/1.3 'Mitr',sans-serif;white-space:nowrap}
+.flow .fi{display:flex;justify-content:center;gap:2px;height:36px;margin-bottom:2px}.flow .fi .spr{width:34px;height:34px}
+.flow .fn{position:absolute;top:-11px;left:-9px;z-index:1;background:#a84a14;color:#fff;font:11px/22px 'Press Start 2P',monospace;width:24px;height:22px;box-shadow:0 0 0 2px var(--ink)}
+.flow{padding:6px 4px 0}
+.big2{font:600 18px 'Mitr',sans-serif;margin:4px 0}
+
+/* ช่องไฟ (ผู้ใช้ขอ 11 พ.ย.): เดิมห่างไม่เท่ากัน 4/6/18 px ปรับเป็น 12 px ทุกบล็อก และเพิ่ม padding ในกล่อง */
+.hud{gap:10px;row-gap:10px}
+.card.jarbar{margin:12px 4px 0;padding:8px 14px;min-height:42px;gap:12px}
+#quest{margin-top:12px}
+.quest{padding:10px 14px}
+#inv{margin:12px 4px 0;padding:8px 14px;gap:12px}
+.wrap{margin:12px auto}
+.go{margin:0 0 2px;gap:8px}
+.card.action{margin-top:8px;padding:12px 16px}
+.card.action .row{margin-top:10px!important;gap:8px}
+.goals,.stars{display:flex;flex-direction:column;gap:4px;align-items:center;margin:10px 0}
+.goals{background:var(--panel-2,#f6e7c1);padding:10px 12px;border:3px dashed var(--ink)}
+.stars span{color:var(--ink-soft)}.stars .got{color:#a84a14;font-weight:600}
+.pick{flex-wrap:wrap}.pick>span[style*="flex:1"]{flex:1 1 200px!important;min-width:0}   /* มือถือ: ข้อความการ์ดลงบรรทัดใหม่เต็มกว้าง ไม่บีบเป็นคอลัมน์แคบ */
+.pick.shop{position:relative}.pick.shop .pay{color:var(--ink);margin-top:2px}
+.pick.top{box-shadow:0 -4px 0 0 #a84a14,0 4px 0 0 #a84a14,-4px 0 0 0 #a84a14,4px 0 0 0 #a84a14}
+.topb{background:#a84a14;color:#fff;font-size:12px;padding:1px 6px;white-space:nowrap}
+.stampmark{position:absolute;right:10px;bottom:8px;border:3px solid #2f8a3e;color:#2f8a3e;font:600 13px 'Mitr',sans-serif;padding:0 6px;transform:rotate(-8deg);background:rgba(255,255,255,.7)}
+.pick.stamp .stampmark{animation:stampin .35s steps(4)}
+@keyframes stampin{from{transform:rotate(-8deg) scale(2.2);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+.tray{display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:center;align-items:center;margin-top:8px}
+.tray .tc{display:inline-flex;align-items:center;font:12px 'Press Start 2P',monospace}
+.tray .tc.gone{opacity:.35;text-decoration:line-through}
+.tray .tc.go{animation:coingone .6s steps(5)}
+@keyframes coingone{from{opacity:1;transform:scale(1.4)}to{opacity:.35;transform:scale(1)}}
+/* อีสเตอร์เอก: จอหรี่ ผีลอย ตัวละครสลบ */
+.wrap.haunt .map,.wrap.haunt .dyn>.base{filter:brightness(.4) saturate(.5) hue-rotate(-20deg);transition:filter .6s}
+.wrap .map,.wrap .dyn>.base{transition:filter .6s}
+.ghost{position:absolute;width:var(--t);height:var(--t);z-index:13;transition:left .2s linear, top .2s linear;pointer-events:none;animation:gfloat 1.2s ease-in-out infinite, gflick 2.3s steps(1) infinite;filter:drop-shadow(0 0 6px rgba(194,69,47,.8))}
+.ghost .spr{width:100%;height:100%}
+@keyframes gfloat{50%{transform:translateY(-5px)}}
+@keyframes gflick{0%{opacity:.92}46%{opacity:.92}48%{opacity:.35}50%{opacity:.92}80%{opacity:.6}82%{opacity:.92}}
+.hero.ko .spr{transform:rotate(90deg) translateY(10%);filter:grayscale(.7)}
+/* จอกว้าง: แผนที่ซ้าย แผงขวา */
+main:has(.pg.wide){max-width:1500px}
+.pg.wide{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+.pg.wide .pg-l{position:sticky;top:8px}
+.pg.wide .pg-l .wrap{margin:0 auto}
+.pg.wide .hud{flex-wrap:wrap;min-height:0}
+.pg.wide #quest{height:auto;min-height:56px}
+.pg.wide .card.action{margin-top:12px}
+@media (hover:none){ .keys{display:none} }   /* จอสัมผัสไม่มีคีย์บอร์ด */
+@media (max-width:419px){ main{padding-left:10px;padding-right:10px} }
 </style>
 </head>
 <body>
@@ -145,7 +231,7 @@ select,input[type=text]{font:inherit;padding:6px 8px;margin:4px;background:#fff;
 <script>
 /* ───────── ค่าตั้งต้น (หน่วยวินาที) ───────── */
 const RULE = {
-  shiftSec: 300,                 // กะละ 5 นาที (ผู้ใช้ขอ 11 พ.ย. หลังเพิ่ม 3 สินค้า + ราวออเดอร์ 3 นาทีแน่นเกิน)
+  shiftSec: 240,                 // กะละ 4 นาที × 3 กะ (ผู้ใช้ขอ 12 พ.ย. เดิม 6 นาที)
   walk: 0.25,                    // เดิน 1 ช่อง
   dur: {fry:4, mill:3, pick:2, drop:1, take:1, load:2, dry:10, lift:1, pack:3, packSlow:5, grab:1, sign:4, send:1, search:3},
   onTime: 90,                    // เป้า: ส่งภายใน 90 วินาทีหลังร้านสั่ง (60 วิ บอตส่งทันแทบไม่ได้ในกะ 2 เพราะคนเดียวทำทีละถุง)
@@ -153,20 +239,33 @@ const RULE = {
   pack: 1, packLean: 1,          // เก็บกล้วยต่อเที่ยว (หวี) · ทีละหวี (ผู้ใช้ขอ 11 พ.ย.) เดิม 5 / ข้อ I 3
   // เวลาที่ออเดอร์เข้า กะ 2 จำนวนเท่าเดิม เวลาต่างไป
   // เวลาออเดอร์ยืดตามกะ 5 นาที (×5/3 จากชุด 3 นาที) จำนวนเท่าเดิม 8 ใบ
-  orders1: [5,33,67,92,133,167,200,233], orders2: [5,25,58,100,125,167,208,242],
+  // ห่างขึ้นราว 8% (ผู้ใช้ขอ 11 พ.ย.) เดิม [5,33,67,92,133,167,200,233] / [5,25,58,100,125,167,208,242]
+  orders1: [5,35,68,95,138,175,211,247], orders2: [5,27,62,107,134,180,224,256],
   // สินค้า 3 อย่างตามเคส Banana Land (ผู้ใช้ขอ 10 พ.ย.) · ทั้งสองกะ: ตาก 4 ฉาบ 2 แป้ง 2 สลับลำดับ · ใบแรกเป็นกล้วยตากให้บทสอนเหมือนเดิม
   // แป้งอยู่ลำดับ 2 เพราะเส้นทางยาวสุด (ตาก+บด) ถ้าเข้าทีหลัง บอตกะ 1 ไม่เคยทำแป้งเสร็จทันจบกะ น้องจะไม่เคยเห็นเครื่องบด
   // ตัดแป้งกล้วยออก (ผู้ใช้ขอ 11 พ.ย.) · ช่องที่เคยเป็นแป้งแทนด้วยกล้วยตาก ภาระลานตากเท่าเดิม แค่ไม่ต้องไปบด
-  prod1: ['dried','dried','chips','dried','chips','dried','dried','dried'],
-  prod2: ['dried','dried','chips','dried','chips','dried','dried','dried'],
-  ideaAt: 100, staffAt: 150, staffLoss: 6, moveEach: 2,
+  // 3 กะแบบ tycoon (ผู้ใช้ขอ 12 พ.ย.): กะ 1 เปิดร้าน กล้วยตากอย่างเดียว · กะ 2 เพิ่มกล้วยฉาบ · กะ 3 ออเดอร์ถล่ม
+  rounds: [
+    {name:'เปิดร้าน', short:'เปิดร้าน', goal:{ok:4, coins:18}, orders:[5,31,61,91,121,151], prods:['dried','dried','dried','dried','dried','dried']},
+    {name:'เพิ่มเมนูกล้วยฉาบ', short:'+ฉาบ', goal:{ok:5, coins:18}, orders:[5,28,55,78,104,131,157,184], prods:['dried','dried','chips','dried','chips','dried','dried','dried']},
+    {name:'ออเดอร์ถล่ม', short:'ถล่ม', goal:{ok:6, coins:24}, orders:[5,26,47,68,89,110,131,152,173], prods:['dried','chips','dried','dried','chips','dried','dried','chips','dried']}
+  ],
+  ideaAt: 70, staffAt: 100,   // เลื่อนตามกะ 4 นาที
+  staffLoss: 6, moveEach: 2,
   // เงิน (ตัวเลขสมมติ ควรแทนด้วยตัวเลขชุดเดียวกับฐานต้นทุน) · critique 10 พ.ย. ข้อ 1 และ 3
+  reroll: 20, starBonus: 20,
+  incenseEvery: 60, ghostChase: 15, ghostKO: 7, ghostSpeed: 0.85,   // อีสเตอร์เอก (ผู้ใช้ขอ 12 พ.ย.) ผีเร็วกว่าเราเล็กน้อย      // การ์ดสุ่มใหม่ 20 ฿ · ได้ดาวละ 20 ฿ (ผู้ใช้ขอ 12 พ.ย.)
   budget: 200, bagPrice: 40, coinCost: 5,    // งบเท่ากันทุกกลุ่ม · ส่งทัน 1 ถุง +40 ฿ · เหรียญละ 5 ฿ (10 ฿ ทำให้กะ 1 ขาดทุน −200 ทุกโต๊ะ ดูท้อ)
   ahead: 2, rotEvery: 45, rotKeep: 2, tableCap: 2,
   // ของเสียเกิดจากผู้เล่นเท่านั้น (ผู้ใช้ขอ 11 พ.ย.): ตากเสร็จแล้วไม่ยกภายใน burnDry วิ = ไหม้ · ทอดเสร็จแล้วไม่ตักภายใน burnFry วิ = ไหม้
   burnDry: 15, burnFry: 5,
+  burnDry1: 30,                  // กะ 1 ให้เวลายกถาดนานขึ้น (ผู้ใช้ขอ 11 พ.ย.: 15 วิเร็วไปสำหรับมือใหม่) กะ 2 กลับเป็น 15
+  firstExtra: 60,                // ออเดอร์แรกสุดของกะ 1: เป้าส่ง 90+60 = 150 วิ, ยกเลิกที่ 120+60 = 180 วิ (ผู้ใช้ขอ 11 พ.ย.) ใส่ 0 = ปิด
+  learnCap: 1,                   // กะ 1: ใบที่ 2 มาหลังส่งใบแรกแล้วเท่านั้น (ผู้ใช้ขอ 11 พ.ย.) ถ้าใบแรกโดนยกเลิก ใบถัดไปมาได้ ไม่ค้างทั้งกะ
   // M จากเดินผ่านลังได้ไม่เกิน 1 เหรียญต่อ markGap วิ (11 พ.ย.) · เดิมทุกเที่ยว พอมีงานเดินเพิ่ม (ถาด ขยะ โต๊ะ) M ขึ้นไป 11 เหรียญ ท่วมตัวอื่น
-  markGap: 60, stockEvery: 30
+  markGap: 60, stockEvery: 30,
+  // ลูกค้ายกเลิก (11 พ.ย.): เกิน cancelAfter วิ นับจากตอนรับใบ (ใบที่ยังไม่รับนับจากตอนสั่ง) · เตือนก่อน cancelWarn วิ
+  cancelAfter: 120, cancelWarn: 10
 };
 // เรียงตาม DOWNTIME · คีย์ข้างในยังเป็น O1/O2/S: O1 = Extra-processing (E) · O2 = Overproduction (O) · S = Non-utilized talent (N)
 const COINS = ['D','O2','W','S','T','I','M','O1'];
@@ -200,22 +299,55 @@ const PRICE = {M:50, O1:50, D:50, O2:30, I:10, T:50, W:30, S:30};
 // critique ข้อ 4: ตัดเครื่องแพ็กออก (สอนเรื่องเดียวกับรถเข็น) เหลือ 3 ชิ้นที่สอนคนละเรื่อง
 const GEAR = {
   dryer2:{spr:'yard', name:'ซื้อลานตากเพิ่ม 1 ลาน', price:120, tags:['W'], what:'ตากพร้อมกันได้เพิ่ม 1 ถาด',
-    hint:'ลด W · ลองแก้วิธีทำงานก่อน ถ้ายังรอตากอยู่ค่อยซื้อ',   // บอต: ในโจทย์ 8 ออเดอร์ ลานเดียว+เกลี่ยงานพอแล้ว ซื้อเพิ่มไม่เคยคืนทุน จึงไม่สัญญาว่าคุ้ม
-    lesson:'ลานตากคือคอขวด ซื้อเพิ่มช่วยได้จริง แต่ "เกลี่ยงาน" 60 ฿ ได้ผลใกล้กัน ลองแก้วิธีก่อน ถ้ายังไม่พอค่อยลงทุน'},
+    hint:'ลด W ถ้าแก้วิธีทำงานแล้วยังต้องรอลานตากอยู่ ค่อยซื้อ',   // บอต: ในโจทย์ 8 ออเดอร์ ลานเดียว+เกลี่ยงานพอแล้ว ซื้อเพิ่มไม่เคยคืนทุน จึงไม่สัญญาว่าคุ้ม
+    lesson:'ลานเพิ่มทำให้ตากได้ทีละ 2 ถาด แต่ถ้าที่ต้องรอจริง ๆ คือการเดินไปเก็บกล้วย ลานเพิ่มก็ไม่ช่วย ลองแก้วิธีทำงานก่อน แล้วดูว่ายังรอลานตากอยู่ไหม'},
+  // ต้นกล้วยพันธุ์ดี (ผู้ใช้ขอ 12 พ.ย.): เก็บได้ครั้งละ 2 หวี เดินไปสวนน้อยลง (T) แต่กล้วยกองนานจะงอม (I) = กับดักย้ายความสูญเปล่า
+  tree2:{spr:'garden', name:'ต้นกล้วยพันธุ์ดี', price:80, tags:['T'], what:'เก็บกล้วยได้ครั้งละ 2 หวี', conflict:'cloth',
+    hint:'เดินไปสวนน้อยลง แต่ถ้าใช้ไม่ทัน กล้วยที่กองไว้จะงอม (I)',
+    lesson:'ได้กล้วยทีละ 2 หวีทำให้เดินไปสวนน้อยลง แต่ถ้ากล้วยกองรอนาน จะงอมกลายเป็นเหรียญ I แทน ความสูญเปล่าไม่ได้หาย แค่ย้ายที่'},
+  // เครื่องแพ็ก (ผู้ใช้ขอ 12 พ.ย.): แพ็กถุงละ 1 วิ (เดิม 3 วิ หรือ 5 วิ ถ้าคนไปช่วยตาก) · เร็วขึ้นจริง แต่ไม่ลดเหรียญ ช่วยเฉพาะตอนแพ็กเป็นคอขวด
+  packer:{spr:'pack', name:'เครื่องแพ็ก', price:100, tags:[], what:`แพ็กถุงละ 1 วิ (เดิม ${RULE.dur.pack} วิ)`,
+    hint:'ช่วยตอนถุงรอแพ็กกองกัน เช่น กะออเดอร์ถล่ม ถ้าแพ็กไม่ได้เป็นคอขวด ซื้อไปก็ไม่ค่อยต่าง',
+    lesson:'เครื่องแพ็กทำให้งานแพ็กเร็วขึ้น แต่ถ้าคอขวดอยู่ที่ลานตากหรือการเดิน ร้านทั้งร้านก็ไม่ได้เร็วขึ้นเท่าไร ต้องหาคอขวดก่อนซื้อเครื่อง'},
+  // คอมรับออเดอร์ (ผู้ใช้ขอ 12 พ.ย.): ออเดอร์ใหม่เข้าคอมแล้วขึ้นราวเอง ไม่ต้องเดินไปรับใบสั่งแล้วเดินไปแขวน · ไม่มีใบรอที่เคาน์เตอร์ (W)
+  pos:{spr:'pc', name:'คอมรับออเดอร์', price:100, tags:['W'], what:'ออเดอร์ใหม่เข้าคอมแล้วขึ้นราวเอง ไม่ต้องเดินไปรับและแขวน',
+    hint:'ตัดการรอที่เคาน์เตอร์ และการเดินเคาน์เตอร์ ↔ ราว ทุกใบ',
+    lesson:'คอมทำให้ข้อมูลออเดอร์ไหลถึงครัวทันที ไม่ต้องมีคนเดินถือใบสั่ง ตัดได้ทั้งการรอและการเดิน เป็นตัวอย่างของการทำให้งานไหลต่อเนื่อง (flow)'},
+  // ผ้าสามสี (ผู้ใช้ขอ 12 พ.ย.): ลุ้นได้ 2 หวี 50% · ใช้คู่กับต้นกล้วยพันธุ์ดีไม่ได้ · การ์ดไม่บอกเรื่องผี (อีสเตอร์เอก)
+  cloth:{spr:'gardenCloth', name:'ผ้าสามสีพันต้นกล้วย', price:5, tags:['T'], what:'เก็บกล้วยมีลุ้นได้ 2 หวี',
+    hint:'ราคาถูกมาก ใช้คู่กับต้นกล้วยพันธุ์ดีไม่ได้', conflict:'tree2',
+    lesson:'ได้กล้วยเพิ่มบ้างไม่ได้บ้าง ผลที่ขึ้นกับโชควางแผนไม่ได้ Lean ชอบงานที่คาดเดาได้… และบางอย่างที่ได้มาถูก ๆ ก็มีราคาที่มองไม่เห็น'},
   cart:{spr:'tray', name:'รถเข็น', price:120,   // 80 ฿ คืนทุนนิดหน่อยในกะ 5 นาที บทเรียน "แค่ทำ waste ให้เร็วขึ้น" อ่อนลง
     tags:[], what:'เดินเร็วขึ้น 40%',
-    hint:'ไม่ลดเหรียญตัวไหน · ทางเดินยังไกลเท่าเดิม แค่เดินเร็วขึ้น',
-    lesson:'เดินเร็วขึ้นแต่ยังเดินทางไกลเท่าเดิม เหรียญ T กับ M ไม่ได้ลด แค่ทำ waste ให้เร็วขึ้น'}
+    hint:'เดินเร็วขึ้น แต่ทางยังไกลเท่าเดิม เลยไม่ลดเหรียญตัวไหน',
+    lesson:'รถเข็นทำให้เดินเร็วขึ้น แต่ระยะทางเท่าเดิม เหรียญ T กับ M จึงไม่ลด ถ้าย้ายจุดให้ใกล้กัน จะไม่ต้องเดินไกลตั้งแต่แรก'}
   // ตัดจ้างบริษัทจัดร้านออก (ผู้ใช้ขอ 11 พ.ย.): จัดร้านต้องลงมือย้ายเองเท่านั้น
 };
 const CONSULT = {order:[6,3], pack:[7,4], send:[7,5], boss:[5,5], shelf:[8,4], fryer:[5,3], rail:[8,3], table:[7,6]};
-function budget(){ return RULE.budget; }
-function spent(){ return [...s.fixes].reduce((n,k)=>n+PRICE[k],0) + [...s.equip].reduce((n,k)=>n+GEAR[k].price,0); }
+/* เงินสะสมข้ามกะ (ผู้ใช้ขอ 12 พ.ย.): เริ่มที่ RULE.budget ซื้อของหักทันที จบกะบวกรายได้ลบเหรียญ
+   ของที่ซื้อตอนพักครั้งนี้คืนได้ ของที่ซื้อตั้งแต่พักครั้งก่อนคืนไม่ได้ */
+const priceOf = k => k in PRICE ? PRICE[k] : GEAR[k].price;
+function budget(){ return s.cash; }
+/* เป้าดาวของกะ r (1-based) */
+const goalList = r => { const g = RULE.rounds[r-1].goal; return [`ส่งทันอย่างน้อย ${g.ok} ถุง`, `เหรียญไม่เกิน ${g.coins} อัน`, 'ไม่มีลูกค้ายกเลิก']; };
+const goalHTML = r => `<div class="goals"><b>เป้ากะ ${r} · ${RULE.rounds[r-1].name}</b>${goalList(r).map(t=>`<span>☆ ${t}</span>`).join('')}<small class="soft">ได้ดาวละ ${RULE.starBonus} ฿</small></div>`;
+/* ร้านแบบการ์ด (ผู้ใช้ขอ 12 พ.ย. จากตัวอย่าง PlateUp!/Slay the Spire): สุ่ม 3 ใบจากของที่ยังไม่มี · สุ่มใหม่เสียเงิน · ไม่ซื้อก็ได้ เงินเก็บไว้กะหน้า */
+const cardPool = () => [...COINS.filter(c=>!['I','S','O2'].includes(c) && !s.fixes.has(c)), ...Object.keys(GEAR).filter(k=>!s.equip.has(k))];
+function drawOffer(){ const pool = cardPool().sort(()=>Math.random()-.5); s.offer = pool.slice(0,3); s.offerFor = s.shift; }
+function reroll(){ if(s.cash < RULE.reroll){ toast('เงินไม่พอสุ่มใหม่'); return; }
+  const left = cardPool().filter(k=>!s.offer.includes(k));
+  if(!left.length && cardPool().length<=s.offer.length){ toast('ไม่มีการ์ดอื่นให้สุ่มแล้ว'); return; }
+  s.cash -= RULE.reroll; s.rerolls = (s.rerolls||0)+1;
+  const pool = (left.length>=3 ? left : cardPool()).sort(()=>Math.random()-.5); s.offer = pool.slice(0,3); render(); }
+function spentAt(b){ return Object.entries(s.bought).filter(([k,r])=>r===b).reduce((n,[k])=>n+priceOf(k),0); }   // ซื้อตอนพักหลังกะ b
+function spent(){ return Object.keys(s.bought).reduce((n,k)=>n+priceOf(k),0); }
 function buy(k){
   const isFix = k in PRICE, set = isFix ? s.fixes : s.equip, price = isFix ? PRICE[k] : GEAR[k].price;
-  if(set.has(k)){ set.delete(k); if(k==='consult') s.layout = JSON.parse(JSON.stringify(START)); }
-  else if(spent() + price > budget()) toast('งบไม่พอ');
-  else { set.add(k); if(k==='consult') Object.assign(s.layout, {yard:START.yard.slice(), bin:START.bin.slice()}, JSON.parse(JSON.stringify(CONSULT))); }   // ตำแหน่งบริษัทอิงลานตากจุดเดิม
+  if(set.has(k)){ if(s.bought[k]!==s.shift){ toast('ซื้อไปตั้งแต่พักครั้งก่อน คืนไม่ได้'); return render(); }
+    set.delete(k); delete s.bought[k]; s.cash += price; s.justBought = null; if(k==='consult') s.layout = JSON.parse(JSON.stringify(START)); }
+  else if(!isFix && GEAR[k].conflict && s.equip.has(GEAR[k].conflict)) toast(`ใช้คู่กับ${GEAR[GEAR[k].conflict].name}ไม่ได้`);
+  else if(price > s.cash) toast('เงินไม่พอ');
+  else { set.add(k); s.bought[k] = s.shift; s.cash -= price; s.justBought = k; if(k==='consult') Object.assign(s.layout, {yard:START.yard.slice(), bin:START.bin.slice()}, JSON.parse(JSON.stringify(CONSULT))); }   // ตำแหน่งบริษัทอิงลานตากจุดเดิม
   render();
 }
 
@@ -223,7 +355,7 @@ function buy(k){
    กล้วยตาก: ลานตาก (งานเครื่อง 10 วิ ไปทำอย่างอื่นได้)
    กล้วยฉาบ: กระทะทอด (งานติดตัว 4 วิ ต้องยืนทอดเอง)
    แป้งกล้วย: ตากที่ลานก่อน แล้วยกไปบดที่เครื่องบด (งานติดตัว 3 วิ) ค่อยแพ็ก = ขั้นตอนยาวสุด */
-const PROD = {dried:{n:'กล้วยตาก', spr:'bag'}, chips:{n:'กล้วยฉาบ', spr:'chips'}};
+const PROD = {dried:{n:'กล้วยตาก', spr:'bagDry'}, chips:{n:'กล้วยฉาบ', spr:'bagChips'}};   // ใช้รูปเดียวกับถุงที่แพ็กเสร็จ
 
 /* ───────── sprite พิกเซล 12×12 (เหมือนรุ่นแบบตา) ───────── */
 const PAL = {k:'#2b1d14',w:'#fff6d8',s:'#f2c9a0',h:'#e0b04a',H:'#9c6a1c',r:'#d0483a',b:'#3b5dc9',y:'#f5d142',Y:'#c99a1c',
@@ -231,6 +363,36 @@ const PAL = {k:'#2b1d14',w:'#fff6d8',s:'#f2c9a0',h:'#e0b04a',H:'#9c6a1c',r:'#d04
 const ART = {
   hero:['....kkkk....','...khhhhk...','.kkhhhhhhkk.','kHHHHHHHHHHk','..kssssssk..','..kskssksk..','..kssssssk..',
         '.krrrrrrrrk.','ksrrrrrrrrsk','.kbbbbbbbbk.','.kbbbkkbbbk.','.kkkk..kkkk.'],
+  // ท่าทางตัวละคร (ผู้ใช้ขอ 11 พ.ย.): เดิน 4 ทิศ ทิศละ 2 เฟรม, ทอดกล้วย 2 เฟรม, เก็บกล้วย 2 เฟรม · ขวา = กลับด้านซ้าย
+  // ท่าทางรอบ 2 (ผู้ใช้ขอ 11 พ.ย.) ตามเรฟ RPG มุมบน: ก้าวแล้วยกเท้าขึ้น 1 ช่อง ความสูงตัวคงที่ แขนแกว่งสวนขา ด้านข้างทำชุดเดียวแล้วกลับด้าน
+  heroD1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrks', 'ksrrrrrrrrk.', '.kbbbbbbbbk.', '.kkkkkkbbbk.', '.......kkkk.'],
+  heroD2:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', 'skrrrrrrrrk.', '.krrrrrrrrsk', '.kbbbbbbbbk.', '.kbbbkkkkkk.', '.kkkk.......'],
+  heroU1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kOOOOOOk..', '..kOOOOOOk..', '..ksOOOOsk..', '.krrrrrrrrks', 'ksrrrrrrrrk.', '.kbbbbbbbbk.', '.kkkkkkbbbk.', '.......kkkk.'],
+  heroU2:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kOOOOOOk..', '..kOOOOOOk..', '..ksOOOOsk..', 'skrrrrrrrrk.', '.krrrrrrrrsk', '.kbbbbbbbbk.', '.kbbbkkkkkk.', '.kkkk.......'],
+  heroL0:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHk.', '...ksssOOk..', '...ksksOOk..', '...ksssssk..', '....krrrk...', '....krsrk...', '....kbbbk...', '....kbbbk...', '...kkkkk....'],
+  heroL1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHk.', '...ksssOOk..', '...ksksOOk..', '...ksssssk..', '....krrrk...', '...srrrrk...', '....kbbbk...', '...kbk.kbk..', '..kkk..kk...'],
+  heroL2:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHk.', '...ksssOOk..', '...ksksOOk..', '...ksssssk..', '....krrrk...', '....krrrrs..', '....kbbbk...', '...kbk.kbk..', '..kkk..kk...'],
+  heroG1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.krrrrrrrrk.', '.ksbbbbbbsk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroG2:['............', '....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.ksrrrrrrsk.', '.kbbbbbbbbk.', '.kkkk..kkkk.'],
+  heroY1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.krrrrrrrrsk', 'ysbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroY2:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', 'ksrrrrrrrrk.', '.kbbbbbbbbsy', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroK1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.krrsccsrrk.', '.kbbkcckbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroK2:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrkcckrrk.', '.krrsccsrrk.', '.kbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroW1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrww', 'ksrrrrrrrrsw', '.kbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroW2:['....kkkk...w', '...khhhhk.ww', '.kkhhhhhhkws', 'kHHHHHHHHHHs', '..kssssssk.r', '..kskssksk.r', '..kssssssk.r', '.krrrrrrrrkr', 'ksrrrrrrrrk.', '.kbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroN1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.krrsccsrrk.', '.kbbkcckbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroN2:['....kkkk...c', '...khhhhk.cc', '.kkhhhhhhkcs', 'kHHHHHHHHHHs', '..kssssssk.r', '..kskssksk.r', '..kssssssk.r', '.krrrrrrrrkr', 'ksrrrrrrrrk.', '.kbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroS1:['....kkkk....', '...khhhhk...', '.kkhhhhhhkk.', 'kHHHHHHHHHHk', '..kssssssk..', '..kskssksk..', '..kssssssk..', '.krrrrrrrrk.', '.krrrrrrrrk.', '.kbbbbbbbbk.', '.kbbbkkbbbk.', '.kkkk..kkkk.'],
+  heroU0:['....kkkk....','...khhhhk...','.kkhhhhhhkk.','kHHHHHHHHHHk','..kOOOOOOk..','..kOOOOOOk..','..ksOOOOsk..',
+        '.krrrrrrrrk.','ksrrrrrrrrsk','.kbbbbbbbbk.','.kbbbkkbbbk.','.kkkk..kkkk.'],
+  heroF1:['....kkkk....','...khhhhk...','.kkhhhhhhkEE','kHHHHHHHHHEE','..kssssssk.O','..kskssksk.O','..kssssssk.O',
+        '.krrrrrrrrks','ksrrrrrrrrk.','.kbbbbbbbbk.','.kbbbkkbbbk.','.kkkk..kkkk.'],
+  heroF2:['....kkkk....','...khhhhk...','.kkhhhhhhkk.','kHHHHHHHHHHk','..kssssssk..','..kskssksk..','..kssssssk..',
+        '.krrrrrrrrk.','ksrrrrrrrrks','.kbbbbbbbbkO','.kbbbkkbbbEE','.kkkk..kkkEE'],
+  heroP1:['....kkkk....','...khhhhk...','.kkhhhhhhkk.','kHHHHHHHHHHk','s.kssssssk.s','r.kskssksk.r','r.kssssssk.r',
+        'rkrrrrrrrrkr','.krrrrrrrrk.','.kbbbbbbbbk.','.kbbbkkbbbk.','.kkkk..kkkk.'],
+  heroP2:['....kkkk...y','...khhhhk.yy','.kkhhhhhhkys','kHHHHHHHHHHs','..kssssssk.r','..kskssksk.r','..kssssssk.r',
+        '.krrrrrrrrkr','ksrrrrrrrrk.','.kbbbbbbbbk.','.kbbbkkbbbk.','.kkkk..kkkk.'],
   crate:['kkkkkkkkkkkk','kcccccccccck','kCCCCCCCCCCk','kcCccccccCck','kccCccccCcck','kcccCccCccck','kccccCCcccck',
          'kcccCccCccck','kccCccccCcck','kcCccccccCck','kCCCCCCCCCCk','kkkkkkkkkkkk'],
   garden:['..gg....gg..','.gGGg..gGGg.','gGggGggGggGg','..gGGggGGg..','....gGGg....','.....oo.....','....yyoy....',
@@ -268,9 +430,34 @@ const ART = {
   // โต๊ะวางของ (ผู้ใช้ขอ 11 พ.ย.) · มือเต็มแล้ววางพักไว้ก่อนได้
   table:['............','............','............','kkkkkkkkkkkk','kcccccccccck','kCCCCCCCCCCk','kkkkkkkkkkkk',
          '.kOk....kOk.','.kOk....kOk.','.kOk....kOk.','.kOk....kOk.','.kkk....kkk.'],
+  // ถาด/ถุงแยกตามสินค้า (ผู้ใช้ขอ 11 พ.ย.) · ถาดกล้วยตากเป็นแถบสีน้ำตาลอ่อน ถาดกล้วยฉาบเป็นแผ่นกลมสีเหลือง
+  trayDry:['........','........','.yYB.yY.','.YBB.YBB','kkkkkkkk','kEEEEEEk','.k....k.','........'],
+  trayChips:['........','.yy..yy.','yYyyyYyy','.yyyYyy.','kkkkkkkk','kEEEEEEk','.k....k.','........'],
+  bagDry:['..kkkk..','.kwwwwk.','kkkkkkkk','kwYBwYBk','kwBYwBYk','kwwwwwwk','kwYBwYBk','kkkkkkkk'],
+  bagChips:['..kkkk..','.kwwwwk.','kkkkkkkk','kwyywyyk','kyYyyYwk','kwyywyyk','kyywyYyk','kkkkkkkk'],
+  // ไอคอนปุ่ม (ผู้ใช้ขอ 11 พ.ย.): เน้นของที่ใช้ + ลูกศร ขึ้น=หยิบ/ยก ลง=วาง/ทิ้ง
+  iFry1:['............','..w..w..w...','...w..w..w..','..w..w..w...','............','.yYyyYyyYy..','kkkkkkkkkkk.','kEEEEEEEEkOO','.kEEEEEEk...','..kkkkkk....','...rrrr.....','..r.rr.r....'],
+  iFry2:['............','...w..w..w..','..w..w..w...','...w..w..w..','............','.yyYyyYyyY..','kkkkkkkkkkk.','kEEEEEEEEkOO','.kEEEEEEk...','..kkkkkk....','..r.rr.r....','...rrrr.....'],
+  iSun1:['.....y...y..','......yyy...','....yyYYYyy.','......yyy...','.....y...y..','............','............','.yYB.yYB.yY.','kkkkkkkkkkkk','kEEEEEEEEEEk','.k........k.','.k........k.'],
+  iSun2:['.......y....','....y.yyy.y.','.....yYYYy..','....y.yyy.y.','.......y....','............','............','.yYB.yYB.yY.','kkkkkkkkkkkk','kEEEEEEEEEEk','.k........k.','.k........k.'],
+  iPack1:['.k....k.','..k..k..','kkkkkkkk','kwYBwYBk','kwBYwBYk','kwwwwwwk','kwYBwYBk','kkkkkkkk'],
+  iPack2:['..kkkk..','.krrrrk.','kkkkkkkk','kwYBwYBk','kwBYwBYk','kwwwwwwk','kwYBwYBk','kkkkkkkk'],
+  arUp:['...k...','..kgk..','.kgggk.','kgggggk','kkgggkk','..kgk..','..kkk..'],
+  arDown:['..kkk..','..kbk..','kkbbbkk','kbbbbbk','.kbbbk.','..kbk..','...k...'],
+  arRight:['..kk...','..kgk..','kkkggk.','kgggggk','kkkggk.','..kgk..','..kk...'],
+  // คอมรับออเดอร์ (ผู้ใช้ขอ 12 พ.ย.): จอฟ้ามีรายการออเดอร์ + คีย์บอร์ด
+  pc:['............','.kkkkkkkkkk.','.kbbbbbbbbk.','.kbwwwwwwbk.','.kbbbbbbbbk.','.kbwwwwbbbk.','.kbbbbbbbbk.',
+      '.kkkkkkkkkk.','.....kk.....','...kkkkkk...','kEeEeEeEeEek','kkkkkkkkkkkk'],
+  // อีสเตอร์เอก (ผู้ใช้ขอ 12 พ.ย.): โหลธูป + ผีผมยาวชุดเขียวใบตอง ตาแดง ไม่มีเท้า
+  incense:['...r..r..r..','...H..H..H..','...H..H..H..','...H..H..H..','..kHkkHkkHk.','.kYYYYYYYYk.','.kyyyyyyyyk.',
+      '.kyYyyyyYyk.','.kyyyyyyyyk.','..kyyyyyyk..','..kkkkkkkk..','............'],
+  tani:['...kkkkkk...','..kkkkkkkk..','.kkwwwwwwkk.','.kwrwwwwrwk.','.kwwwwwwwwk.','.kkwwkkwwkk.','kk.kwwwwk.kk',
+      'k.gGGGGGGg.k','k.GgGGGGgG.k','..gGGGGGGg..','..GGgGGgGG..','...g.gg.g...'],
   sign:['......kk','.....kwk','....kwk.','...kwk..','..kwk...','.kkk....','kk......','........']
 };
 function noise(n,a,b,m){ return Array.from({length:n},(_,y)=>Array.from({length:n},(_,x)=>((x*7+y*13+x*y)%m===0)?b:a).join('')); }
+ART.gardenCloth = ART.garden.map((r,i)=> i===9 ? '....ryb.....' : r);   // ต้นกล้วยพันผ้าสามสี
+ART.heroD0 = ART.hero; for(const f of ['0','1','2']) ART['heroR'+f] = ART['heroL'+f].map(r=>[...r].reverse().join(''));
 ART.grass = noise(8,'g','G',5); ART.floor = noise(8,'c','w',11);
 const SPR = {};
 for(const [name, rows] of Object.entries(ART)){
@@ -278,27 +465,39 @@ for(const [name, rows] of Object.entries(ART)){
   rows.forEach((r,y)=>[...r].forEach((ch,i)=>{ if(PAL[ch]){ x.fillStyle=PAL[ch]; x.fillRect(i,y,1,1); } }));
   SPR[name]=c.toDataURL();
 }
+/* รูปของที่ถือ/วาง: ถาดและถุงใช้รูปตามสินค้าข้างใน (ฉาบล้วนเป็นรูปฉาบ นอกนั้นเป็นกล้วยตาก) */
+const itemSpr = (kind, items) => (kind==='tray'||kind==='bag') ? kind + (items && items.length && items.every(c=>c.prod==='chips') ? 'Chips' : 'Dry') : kind;
+const spH = (h, cls) => sp(itemSpr(h.kind, h.items), cls);
+const hasCloth = () => s && s.shift>=2 && s.equip.has('cloth');
+const hasPos = () => s && s.shift>=2 && s.equip.has('pos');
+const stSpr = st => st==='order' && hasPos() ? 'pc' : st==='garden' && hasCloth() ? 'gardenCloth' : st;   // ซื้อคอมแล้วเคาน์เตอร์เปลี่ยนเป็นรูปคอม
 const sp = (n, cls='spr') => `<i class="${cls}" style="background-image:url(${SPR[n]})"></i>`;
 
 /* ───────── แผนที่ ─────────
    กะ 1 จัดแย่: สวนมุมไกล ชั้นพักอีกฝั่ง ประธานนั่งไกล ลังวางเกะกะ (ช่อง M)
    กะ 2 ขยับตามหลักการที่เลือก */
 const W = 13, H = 9;
-const ST = { rail:'ราวออเดอร์', fryer:'กระทะทอด', mill:'เครื่องบด', garden:'สวนกล้วย', order:'รับออเดอร์', yard:'ลานตาก', shelf:'ชั้นพัก', pack:'แพ็กถุง', boss:'ประธาน', send:'ส่งของ', bin:'ถังขยะ', table:'โต๊ะวางของ' };
+const ST = { incense:'โหลธูป', rail:'ราวออเดอร์', fryer:'กระทะทอด', mill:'เครื่องบด', garden:'สวนกล้วย', order:'รับออเดอร์', yard:'ลานตาก', shelf:'ชั้นพัก', pack:'แพ็กถุง', boss:'ประธาน', send:'ส่งของ', bin:'ถังขยะ', table:'โต๊ะวางของ' };
 /* ตำแหน่งจุดตั้งต้นของกะ 1 · กะ 2 ใช้ตำแหน่งที่น้องลากจัดเองในหน้าจัดร้าน (s.layout)
    เดิมข้อ T ย้ายให้อัตโนมัติ เปลี่ยนเป็นให้น้องจัดเอง (10 พ.ย.) เพราะการตัดสินใจเองว่าจะวางอะไรไว้ไหนคือส่วนที่ได้เรียนที่สุด */
 const START = {garden:[0,0], order:[0,8], yard:[6,4], shelf:[12,3], pack:[10,8], boss:[12,0], send:[12,8], bin:[7,3], fryer:[3,7], rail:[9,7], table:[4,6]};
 // สวนย้ายไม่ได้ (ผู้ใช้ขอ 11 พ.ย.) ต้นกล้วยปลูกอยู่ตรงนั้น · ลานตากย้ายได้แทน จะได้แก้ T จากการแบกกล้วยได้
-const MOVABLE = ['yard','bin','order','rail','shelf','pack','boss','send','fryer','table'];
+const MOVABLE = ['yard','bin','rail','shelf','pack','boss','fryer','table'];   // สวน เคาน์เตอร์รับออเดอร์ และรถส่งของ ย้ายไม่ได้ (ผู้ใช้ขอ 12 พ.ย.) อยู่ติดถนน/ลูกค้า
 function layout(forTwo){
-  const two = forTwo ?? s.shift===2, f = s.fixes, tidy = two && f.has('M');
+  const two = forTwo ?? s.shift>=2, f = s.fixes, tidy = two && f.has('M');
   const base = two ? s.layout : START;
   const at = {...Object.fromEntries(Object.entries(base).map(([k,v])=>[k,v.slice()]))};
   if(two && f.has('T')) at.shelf = null;
   if(two && f.has('O1')) at.boss = null;
+  if(forTwo===undefined && s.shift===1) at.fryer = null;   // กะ 1 ยังไม่มีเมนูกล้วยฉาบ
   const crates = tidy ? [] : [[3,2],[3,3],[3,4],[3,5],[9,2],[9,3],[9,4],[9,5],[6,1],[6,7]];
   // ช่อง M เหลือ 4 ช่อง (11 พ.ย.) เดิม 10 ช่อง พอกะยาว 5 นาที M ได้ ~14 เหรียญ กลบตัวอื่นตอนเท
   const marks = tidy ? [] : [[2,3],[4,5],[10,2],[8,5]];
+  // โหลธูปโผล่ข้างสวน (ไม่บอกที่มา) · ต้องโผล่ในหน้าจัดร้านด้วย ไม่งั้นวางของทับได้ (บัคที่ผู้ใช้แจ้ง 12 พ.ย.)
+  // หาช่องว่างใกล้สวนที่ไม่มีจุดอื่นหรือลังวางอยู่
+  if(forTwo===undefined ? hasCloth() : (two && s.equip.has('cloth'))){
+    const used = new Set(Object.values(at).filter(Boolean).map(p=>key(...p)).concat(crates.map(p=>key(...p))));
+    at.incense = [[2,0],[1,1],[2,1],[0,2],[1,2],[3,0],[2,2],[3,1]].find(p=>!used.has(key(...p))) || [2,0]; }
   return {at, crates, marks};
 }
 const key = (x,y) => x+','+y;
@@ -306,58 +505,70 @@ const key = (x,y) => x+','+y;
 /* ───────── สถานะ ───────── */
 let s, screen = 'intro', L;
 const app = document.getElementById('app');
-function fresh(){ return {equip:new Set(), layout:JSON.parse(JSON.stringify(START)), trail:[], trail1:[], shift:1, fixes:new Set(), coins:[{},{}], log:[[],[]], ideas:[], sop:['','',''], stats:[null,null], guesses:{}}; }
+function fresh(){ return {equip:new Set(), layout:JSON.parse(JSON.stringify(START)), trail:[], trail1:[], shift:1, fixes:new Set(), coins:[{},{},{}], log:[[],[],[]], ideas:[], sop:['','',''], stats:[null,null,null], guesses:{}, cash:RULE.budget, bought:{}, seen:new Set(), offer:[], offerFor:0}; }
 function startShift(){
-  Object.assign(s,{t:0, paused:false, modal:null, busy:null, path:[], moveAcc:0, pos:[6,6], hand:null, stock:0,
+  Object.assign(s,{t:0, paused:false, modal:null, busy:null, path:[], moveAcc:0, pos:[6,6], face:'D', oDelay:0, incenseAt:RULE.incenseEvery, incWarned:false, ghost:null, koUntil:0, hand:null, stock:0,
     pending:[], tickets:[], jobs:[], yardDone:[], table:[], shelf:[], packIn:[], ready:[], delivered:[], nextId:1, oi:0, nextW:RULE.wEvery, nextRot:RULE.rotEvery,
-    tut: s.shift===1, moved:false, tutCoin:false, made:0, waste:0, returned:0, trash:{}, pan:null, lastTool:null, nextMark:0, nextStock:RULE.stockEvery, ahead:0, ideaAsked:false, staffShown:false, mTrip:false, trail:[[6,6]]});
+    tut: s.shift===1, moved:false, tutCoin:false, made:0, waste:0, returned:0, trash:{}, pan:null, say:null, cancelled:0, lastTool:null, nextMark:0, nextStock:RULE.stockEvery, ahead:0, ideaAsked:false, staffShown:false, mTrip:false, trail:[[6,6]]});
   s.coins[s.shift-1] = Object.fromEntries(COINS.map(c=>[c,0]));
   s.log[s.shift-1] = [];
   L = layout();
   // จัดร้านใหม่เสียเวลาต้นกะ: ย้ายจุดละ RULE.moveEach วินาที
   const moved = two() ? MOVABLE.filter(k=>key(...s.layout[k])!==key(...START[k])).length : 0;
   if(moved && !s.equip.has('consult')) busyFor(moved*RULE.moveEach, `จัดร้านใหม่ ${moved} จุด`);   // จ้างบริษัทแล้วไม่เสียเวลาเอง
+  if(s.shift>1) s.say = {text: s.shift===2 ? 'กะ 2: มีเมนูใหม่ กล้วยฉาบ ทอดที่กระทะ' : 'กะ 3: ออเดอร์ถล่ม! ลูกค้าสั่งรัว ๆ', until:5};
 }
-const two = () => s.shift===2;
+const two = () => s.shift>=2;   // กะ 2 ขึ้นไป: หลังปรับปรุงแล้ว กติกาปกติ
 const has = f => two() && s.fixes.has(f);
 const roll = () => 1 + Math.floor(Math.random()*6);
 const sec = t => `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 function log(t){ s.log[s.shift-1].unshift(`${sec(s.t)} ${t}`); }
 function drop(c, why){
-  if(s.tut) s.tutCoin = true;
+  // เหรียญแต่ละตัวตกครั้งแรก บอกชื่อกับเหตุทันที (ผู้ใช้ขอ 12 พ.ย.) ไม่บอกวิธีแก้ ให้คิดเองตอนพัก
+  if(!s.seen.has(c)){ s.seen.add(c); s.say = {text:`เหรียญ ${LABEL[c]} ${MEAN[c][1]}: ${why}`, until:s.t+4.5}; }
   s.coins[s.shift-1][c]++; log(`${LABEL[c]} · ${why}`);
-  floatAt(s.pos, `<span class="coin">${LABEL[c]}</span><span class="chip" style="background:#c2452f;font-size:10px;padding:2px 4px">−${RULE.coinCost}฿</span>`);
+  floatAt(s.pos, `<span class="coin">${LABEL[c]}</span><span class="chip" style="background:#c2452f;font-size:12px;padding:2px 5px">−${RULE.coinCost}฿</span>`);
 }
 /* เงินระหว่างกะ (ผู้ใช้ขอ 11 พ.ย.): สูตรเดียวกับหน้าสรุป · กะ 2 หักเงินที่ซื้อของตั้งแต่วินาทีแรก */
 function money(){
   const ok = s.delivered.filter(b=>b.ok).length, coins = Object.values(s.coins[s.shift-1]).reduce((a,b)=>a+b,0);
-  const inc = ok*RULE.bagPrice, loss = coins*RULE.coinCost, buy = two() ? spent() : 0;
+  const inc = ok*RULE.bagPrice, loss = coins*RULE.coinCost, buy = spentAt(s.shift-1);
   return {ok, coins, inc, loss, buy, profit: inc - loss - buy};
 }
 function moneyInfo(){ const m = money();
-  toast(`ส่งทัน ${m.ok} ถุง +${m.inc}฿ · เหรียญ ${m.coins} อัน −${m.loss}฿${m.buy?` · ซื้อของ −${m.buy}฿`:''} = ${m.profit}฿`); }
+  toast(`กะนี้: ส่งทัน ${m.ok} ถุง +${m.inc}฿ · เหรียญ ${m.coins} อัน −${m.loss}฿${m.buy?` · ซื้อของ −${m.buy}฿`:''} = ${m.profit}฿ · เงินในร้าน ${s.cash + m.inc - m.loss}฿`); }
 function toast(t){ const el=document.getElementById('toast'); el.textContent=t; el.classList.add('show'); clearTimeout(toast.h); toast.h=setTimeout(()=>el.classList.remove('show'),2200); }
 
 /* ───────── เวลา ─────────
    update(dt) เดินสถานะไปข้างหน้า dt วินาที เรียกจากลูปทุก 0.1 วินาที
    แยกจากการวาด เพื่อให้บอตทดสอบเร่งเวลาได้โดยไม่ต้องรอจริง */
+const burnDry = () => two() ? RULE.burnDry : RULE.burnDry1;
 function busyFor(d, label, then){ s.busy = {start:s.t, end:s.t+d, label, then}; s.mTrip = false; }
 function update(dt){
   if(screen!=='play' || s.paused || s.modal) return;
   s.t += dt;
   // ออเดอร์เข้าตามเวลา
-  const sched = two() ? RULE.orders2 : RULE.orders1;
-  const prods = two() ? RULE.prod2 : RULE.prod1;
-  while(s.oi < sched.length && sched[s.oi] <= s.t){ const pr = prods[s.oi]; s.pending.push({id:s.nextId++, t:sched[s.oi], prod:pr}); s.oi++; log(`ร้านของฝากสั่ง${PROD[pr].n} 1 ถุง`); }
+  const sched = RULE.rounds[s.shift-1].orders;
+  const prods = RULE.rounds[s.shift-1].prods;
+  // กะ 1 ช่วงหัดเล่น: ยังส่งถุงแรกไม่ได้ ให้ออเดอร์ค้างแค่ learnCap ใบ ที่เหลือเลื่อนทั้งตาราง (ระยะห่างเท่าเดิม ไม่มารวดเดียว)
+  const hold = !two() && !s.delivered.length && activeOrders().length >= RULE.learnCap;   // นับใบที่ยังค้าง ใบที่ลูกค้ายกเลิกไปแล้วไม่นับ
+  if(hold && s.oi < sched.length && sched[s.oi] + s.oDelay <= s.t) s.oDelay += dt;
+  while(!hold && s.oi < sched.length && sched[s.oi] + s.oDelay <= s.t){ const pr = prods[s.oi]; const o = {id:s.nextId++, t:s.t, prod:pr, extra: !two() && s.oi===0 ? RULE.firstExtra : 0};
+    if(hasPos()){ o.hung = s.t; s.tickets.push(o); log(`ออเดอร์${PROD[pr].n}เข้าคอม ขึ้นราวเอง`); }   // อัปเกรดคอม: ข้ามรับ+แขวน
+    else { s.pending.push(o); log(`ร้านของฝากสั่ง${PROD[pr].n} 1 ถุง`); }
+    s.oi++; }
   // งานติดตัว
   if(s.busy && s.t >= s.busy.end){ const b=s.busy; s.busy=null; if(b.then) b.then(); }
   // เดิน
   if(!s.busy && s.path.length){
     s.moveAcc += dt;
-    const wk = RULE.walk * (two() && s.equip.has('cart') ? 0.6 : 1);
+    const wk = walkStep();
     while(s.moveAcc >= wk && s.path.length){ s.moveAcc -= wk; step(s.path.shift()); }
+    if(!s.path.length) arrive();   // เพิ่งเดินถึง: ถ้าทำอะไรที่นี่ไม่ได้ ให้ตัวละครพูดบอกเหตุผล
   } else s.moveAcc = 0;
   matchSpare();
+  cancelLate();
+  haunt(dt);
   // งานเครื่อง: ลานตาก
   for(const j of s.jobs.filter(j=>s.t>=j.end)){
     s.jobs.splice(s.jobs.indexOf(j),1);
@@ -369,7 +580,7 @@ function update(dt){
   }
   // ไหม้เพราะปล่อยไว้นาน (11 พ.ย.) · บทสอนไม่ไหม้ · มีข้อ D (กันพลาดที่เครื่อง) ไม่ไหม้
   if(!s.tut && !has('D')){
-    const burnt = s.yardDone.filter(c=>s.t >= c.doneAt + RULE.burnDry);
+    const burnt = s.yardDone.filter(c=>s.t >= c.doneAt + burnDry());
     if(burnt.length){ s.yardDone = s.yardDone.filter(c=>!burnt.includes(c));
       for(const c of burnt){ litter('yard'); drop('D','ตากเสร็จแล้วไม่ยก ปล่อยจนไหม้'); if(c.order) s.tickets.unshift(c.order); }
       floatAt(L.at.yard, `<span style="display:inline-block;width:44px;height:44px">${sp('bad')}</span>`);
@@ -403,7 +614,7 @@ function update(dt){
     s.nextW += RULE.wEvery; }
   // เหตุการณ์กลางกะ (หยุดนาฬิกา)
   if(!two() && !s.ideaAsked && s.t >= RULE.ideaAt){ s.ideaAsked = true; s.modal = 'idea'; render(); }
-  if(two() && !s.staffShown && s.t >= RULE.staffAt){ s.staffShown = true; s.modal = 'staff'; render(); }
+  if(s.shift===2 && !s.staffShown && s.t >= RULE.staffAt){ s.staffShown = true; s.modal = 'staff'; render(); }
   if(s.t >= RULE.shiftSec) endShift();
 }
 
@@ -419,6 +630,7 @@ function path(from,to){
   return out;
 }
 function step(to){
+  const dx = to[0]-s.pos[0], dy = to[1]-s.pos[1]; s.face = dx>0?'R':dx<0?'L':dy<0?'U':'D';
   s.pos = to; s.moved = true; s.trail.push(to);
   // M จากลังเกะกะ นับ 1 ครั้งต่อเที่ยวเดิน (ระหว่างงานสองอย่าง)
   if(L.marks.some(([a,b])=>a===to[0]&&b===to[1]) && !s.mTrip && s.t >= (s.nextMark||0)){ s.mTrip = true; s.nextMark = s.t + RULE.markGap; drop('M','เดินอ้อมลังเกะกะ'); }
@@ -444,13 +656,63 @@ function matchSpare(){
   for(let i=0; i<s.tickets.length; i++){
     const o = s.tickets[i];
     const job = s.jobs.find(j=>!j.order && !j.bad && j.prod===o.prod) || (s.pan && !s.pan.order && o.prod==='chips' ? s.pan : null);   // กล้วยฉาบที่ทอดเผื่ออยู่ในกระทะ
-    const item = job ? null : [...s.yardDone, ...(handIs('tray')?s.hand.items:[]), ...tableItems('tray'), ...s.shelf, ...s.packIn, ...s.ready, ...tableItems('bag')]
+    const item = job ? null : [...s.yardDone, ...(handIs('tray')||handIs('bag')?s.hand.items:[]), ...tableItems('tray'), ...s.shelf, ...s.packIn, ...s.ready, ...tableItems('bag')]
       .find(c=>!c.order && c.prod===o.prod);
     if(!job && !item) continue;
     if(job) job.order = o; else item.order = o;
     s.tickets.splice(i--, 1); log('ใช้ของที่ทำไว้ก่อน');
   }
 }
+/* ลูกค้ารอนานเกินแล้วยกเลิก: ใบสั่งหายไป ของที่ทำไปแล้วกลายเป็นของไม่มีเจ้าของ (นับเป็นของค้างสต็อก I จนกว่าจะมีออเดอร์ใหม่มาใช้) */
+function activeOrders(){
+  const out = [], add = o => o && out.push(o);
+  s.pending.forEach(add); s.tickets.forEach(add);
+  const items = h => h.kind==='ticket' ? h.items : (h.items||[]).map(c=>c.order);
+  if(s.hand) items(s.hand).forEach(add); s.table.forEach(h=>items(h).forEach(add));
+  s.jobs.forEach(j=>add(j.order)); if(s.pan) add(s.pan.order);
+  [...s.yardDone,...s.shelf,...s.packIn,...s.ready].forEach(c=>add(c.order));
+  // ของที่กำลังยกอยู่ (ยกออกจากลาน/กระทะแล้ว แต่ยังไม่ถึงมือ) ต้องนับด้วย ไม่งั้นออเดอร์หายไปชั่วคราว ยกเลิกไม่ได้
+  if(s.busy && s.busy.carry) s.busy.carry.forEach(c=>add(c.order));
+  return out;
+}
+function cancelLate(){
+  if(s.tut) return;
+  const age = o => s.t - o.t - (o.extra||0);
+  for(const o of activeOrders()) if(!o.warned && age(o) > RULE.cancelAfter - RULE.cancelWarn && age(o) <= RULE.cancelAfter){
+    o.warned = true; say(`ลูกค้าออเดอร์ #${o.id} ใกล้ยกเลิกแล้ว!`); }
+  const gone = new Set(), isGone = o => { if(o && age(o) > RULE.cancelAfter){ gone.add(o); return true; } return false; };
+  s.pending = s.pending.filter(o=>!isGone(o));
+  s.tickets = s.tickets.filter(o=>!isGone(o));
+  if(handIs('ticket')){ s.hand.items = s.hand.items.filter(o=>!isGone(o)); if(!s.hand.items.length) s.hand = null; }
+  s.table = s.table.filter(h=>{ if(h.kind!=='ticket') return true; h.items = h.items.filter(o=>!isGone(o)); return h.items.length>0; });
+  const strip = c => { if(c && c.order && isGone(c.order)) c.order = null; };
+  s.jobs.forEach(strip); if(s.pan) strip(s.pan);
+  [...s.yardDone,...s.shelf,...s.packIn,...s.ready].forEach(strip);
+  if(s.hand && s.hand.kind!=='ticket' && s.hand.items) s.hand.items.forEach(strip);
+  s.table.forEach(h=>{ if(h.kind!=='ticket' && h.items) h.items.forEach(strip); });
+  if(s.busy && s.busy.carry) s.busy.carry.forEach(strip);
+  if(!gone.size) return;
+  for(const o of gone){ s.cancelled++; drop('W',`ลูกค้ารอนานเกิน ยกเลิกออเดอร์ #${o.id}`); }
+  const ids = [...gone].map(o=>'#'+o.id).join(' ');
+  toast(`ลูกค้ายกเลิกออเดอร์ ${ids} เพราะรอนานเกิน ${RULE.cancelAfter/60} นาที`);
+  say(`ออเดอร์ ${ids} โดนยกเลิกแล้ว…`);
+}
+/* อีสเตอร์เอก: ธูปมอดแล้วมีอะไรบางอย่างออกมาจากต้นกล้วย (ผู้ใช้ขอ 12 พ.ย.) */
+function haunt(dt){
+  if(!hasCloth()) return;
+  if(!s.ghost && !s.incWarned && s.incenseAt - s.t <= 10){ s.incWarned = true; say('…ได้กลิ่นธูปใกล้มอด'); }
+  if(!s.ghost && s.t >= s.incenseAt){ s.ghost = {pos:L.at.garden.slice(), until:s.t + RULE.ghostChase, acc:0}; say('…ใครน่ะ'); }
+  const g = s.ghost; if(!g) return;
+  g.acc += dt; const gs = walkStep() * RULE.ghostSpeed;
+  while(g.acc >= gs){ g.acc -= gs;   // ลอยทะลุของ ตรงเข้าหาตัวละคร
+    const dx = s.pos[0]-g.pos[0], dy = s.pos[1]-g.pos[1];
+    if(Math.abs(dx) >= Math.abs(dy) && dx) g.pos[0] += Math.sign(dx); else if(dy) g.pos[1] += Math.sign(dy); }
+  if(g.pos[0]===s.pos[0] && g.pos[1]===s.pos[1]){
+    if(s.busy) s.busy.end += RULE.ghostKO; else busyFor(RULE.ghostKO, 'สลบ');   // ยืดงานที่ทำอยู่ ไม่ให้ของหาย
+    s.path = []; s.koUntil = s.t + RULE.ghostKO; say('……'); endGhost();
+  } else if(s.t >= g.until) endGhost();
+}
+function endGhost(){ s.ghost = null; s.incenseAt = s.t + RULE.incenseEvery; s.incWarned = false; }
 function litter(st){ s.trash[st] = (s.trash[st]||0) + 1; }
 const trashSpots = () => Object.keys(s.trash).filter(k=>s.trash[k]>0);
 const KIND_N = {bad:'ของเสีย', banana:'กล้วย', tray:'ถาด', bag:'ถุง', ticket:'ใบออเดอร์'};
@@ -469,8 +731,8 @@ function actions(){
   if(here && s.trash[here]) add(`เก็บของเสีย (${s.trash[here]})`, ()=>busyFor(D.grab,'เก็บของเสีย',()=>{ s.hand={kind:'bad', n:s.trash[here]}; delete s.trash[here]; }), !s.hand);
   if(here==='bin') add(`ทิ้งลงถัง (${handIs('bad')?s.hand.n:0})`, ()=>busyFor(D.drop,'ทิ้งของเสีย',()=>{ s.waste += s.hand.n; s.hand=null; }), handIs('bad'));
   if(here==='garden'){
-    const n = has('I') ? RULE.packLean : RULE.pack;
-    add(`เก็บกล้วย ${n} หวี (${D.pick} วิ)`, ()=>busyFor(D.pick,'เก็บกล้วย',()=>{ s.hand={kind:'banana', n}; if(Math.abs(L.at.garden[0]-L.at.yard[0])+Math.abs(L.at.garden[1]-L.at.yard[1]) > 3) drop('T','แบกกล้วยจากสวนไกล'); }), !s.hand);
+    const n = two() && s.equip.has('tree2') ? 2 : has('I') ? RULE.packLean : RULE.pack, luck = hasCloth();
+    add(`เก็บกล้วย ${luck?'1–2':n} หวี (${D.pick} วิ)`, ()=>busyFor(D.pick,'เก็บกล้วย',()=>{ const got = luck && Math.random()<.5 ? 2 : n; s.hand={kind:'banana', n:got}; if(luck && got===2) say('ได้ 2 หวี!'); if(Math.abs(L.at.garden[0]-L.at.yard[0])+Math.abs(L.at.garden[1]-L.at.yard[1]) > 3) drop('T','แบกกล้วยจากสวนไกล'); }), !s.hand);
   }
   if(here==='order'){
     // รับแล้วใบสั่งอยู่ในมือ ต้องเดินไปแขวนที่ราวก่อน ครัวถึงจะเห็น (ผู้ใช้ขอ 10 พ.ย.)
@@ -484,6 +746,7 @@ function actions(){
     for(let n=1; n<=Math.min(np,3); n++) add(n===np ? `รับทั้งหมด ${n} ใบ` : `รับ ${n} ใบ`, ()=>take(n), canTake);
     if(np>3) add(`รับทั้งหมด ${np} ใบ`, ()=>take(np), canTake);
   }
+  if(here==='incense') add('เปลี่ยนธูป', ()=>busyFor(D.drop,'เปลี่ยนธูป',()=>{ s.incenseAt = s.t + RULE.incenseEvery; s.incWarned = false; if(s.ghost){ s.ghost = null; say('…เงียบไปแล้ว'); } }));
   if(here==='rail'){
     add(`แขวนออเดอร์ (${handIs('ticket')?s.hand.items.length:0})`, ()=>busyFor(D.drop,'แขวนออเดอร์',()=>{
       for(const o of s.hand.items){
@@ -494,7 +757,7 @@ function actions(){
   }
   if(here==='yard'){
     if(handIs('banana')) add('วางกล้วย', ()=>busyFor(D.drop,'วางกล้วย',()=>{ s.stock+=s.hand.n; s.hand=null; }));
-    if(s.yardDone.length) add(`ยกถาดที่ตากเสร็จ (${s.yardDone.length})`, ()=>{ const items = s.yardDone; s.yardDone = []; busyFor(D.grab,'ยกถาดลงจากลาน',()=>{ s.hand={kind:'tray', items}; }); }, !s.hand);
+    if(s.yardDone.length) add(`ยกถาดที่ตากเสร็จ (${s.yardDone.length})`, ()=>{ const items = s.yardDone; s.yardDone = []; busyFor(D.grab,'ยกถาดลงจากลาน',()=>{ s.hand={kind:'tray', items}; }); s.busy.carry = items; }, !s.hand);
     const free = s.jobs.length < slots() && !s.trash.yard;
     const load = (ahead) => {
       const extra = 0;
@@ -513,7 +776,7 @@ function actions(){
   if(here==='fryer'){
     // ทอดเป็นงานเครื่อง (11 พ.ย.): ใส่กระทะแล้วไปทำอย่างอื่นได้ แต่ต้องกลับมาตักภายใน burnFry วิ ไม่งั้นไหม้
     if(s.pan && s.t >= s.pan.end) add('ตักกล้วยฉาบขึ้น', ()=>{ const p = s.pan; s.pan = null;   // ยกออกจากไฟทันทีที่กด กันไหม้ระหว่างตัก
-      busyFor(D.grab,'ตักกล้วยฉาบ',()=>{ s.hand={kind:'tray', items:[{order:p.order, signed:false, prod:'chips', mill:false, rested:!L.at.shelf}]}; }); }, !s.hand);
+      busyFor(D.grab,'ตักกล้วยฉาบ',()=>{ s.hand={kind:'tray', items:[{order:p.order, signed:false, prod:'chips', mill:false, rested:!L.at.shelf}]}; }); s.busy.carry = [p]; }, !s.hand);
     // บัค 11 พ.ย.: เดิมใช้ได้แค่กล้วยที่วางไว้ที่ลานตาก ถือกล้วยจากสวนมาตรงกระทะแล้วกดไม่ได้ และไม่บอกเหตุผล
     // ตอนนี้ใช้กล้วยในมือก่อน ถ้ามือว่างค่อยใช้กล้วยที่ลาน · ปุ่มกดไม่ได้จะบอกว่าขาดอะไร
     const inHand = handIs('banana'), hasBanana = inHand || s.stock>0, hasOrder = s.tickets.some(o=>o.prod==='chips');
@@ -544,7 +807,7 @@ function actions(){
   if(here==='pack'){
     if(handIs('tray')){ const unrested = s.hand.items.some(c=>!c.rested);
       add(unrested ? 'วางถาด (ต้องพักที่ชั้นก่อน)' : 'วางถาด', ()=>busyFor(D.drop,'วางถาด',()=>{ s.packIn.push(...s.hand.items); s.hand=null; }), !unrested); }
-    const pd = has('W') ? D.packSlow : D.pack;
+    const pd = two() && s.equip.has('packer') ? 1 : has('W') ? D.packSlow : D.pack;
     add(`แพ็ก 1 ถุง (${pd} วิ)`, ()=>busyFor(pd,'แพ็ก',()=>{ const i=s.packIn.findIndex(c=>!c.mill); s.ready.push(s.packIn.splice(i,1)[0]); }), s.packIn.some(c=>!c.mill));
     // ถุงที่ทำเผื่อ (ยังไม่มีออเดอร์) หยิบไปส่งไม่ได้ · บอกเหตุผลบนปุ่ม (บัค 11 พ.ย. ผู้เล่นงงว่าทำไมหยิบถุงฉาบไม่ได้)
     const nOk = s.ready.filter(c=>c.order).length, nSpare = s.ready.length - nOk;
@@ -562,23 +825,67 @@ function actions(){
     add('ส่งของ', ()=>{
       const need = !has('O1');
       if(need && s.hand.items.some(b=>!b.signed)){ toast('ประธานยังไม่ได้เซ็น'); return; }
+      const keep = s.hand.items.filter(b=>!b.order);   // ถุงที่ลูกค้ายกเลิกไปแล้ว ส่งไม่ได้ ถือกลับไป
+      s.hand.items = s.hand.items.filter(b=>b.order);
+      if(!s.hand.items.length){ s.hand.items = keep; say('ถุงที่ลูกค้ายกเลิกส่งไม่ได้ เก็บไว้ใช้กับออเดอร์ใหม่'); return; }
       busyFor(D.send*s.hand.items.length,'ส่งของ',()=>{
-        for(const b of s.hand.items){
+        keep.push(...s.hand.items.filter(b=>!b.order));   // ลูกค้ายกเลิกระหว่างกำลังส่ง ถุงนั้นถือกลับ
+        for(const b of s.hand.items.filter(b=>b.order)){
           // ตัดการส่งผิดรสแบบสุ่มออก (11 พ.ย.) ของเสียต้องเกิดจากการกระทำของผู้เล่นเท่านั้น
           const wrong = false;
-          b.ok = !wrong && (s.t - b.order.t) <= RULE.onTime; s.delivered.push(b);
+          b.ok = !wrong && (s.t - b.order.t - (b.order.extra||0)) <= RULE.onTime; s.delivered.push(b);
           floatAt(s.pos, `<span class="chip" style="background:${b.ok?'#2f8a3e':'#c2452f'}">${b.ok?`ทัน! +${RULE.bagPrice}฿`:wrong?'ผิดรส 0฿':'ช้า 0฿'}</span>`);
         }
-        s.hand=null;
+        s.hand = keep.length ? {kind:'bag', items:keep} : null;
+        if(keep.length) say('ถุงที่ลูกค้ายกเลิกส่งไม่ได้ เก็บไว้ใช้กับออเดอร์ใหม่');
         if(s.tut){ s.tut=false;   // บทสอนไม่ไหม้ พอจบให้นับเวลาไหม้ใหม่จากตอนนี้ ไม่งั้นถาดที่ค้างอยู่ไหม้ทันที
           s.yardDone.forEach(c=>c.doneAt=Math.max(c.doneAt,s.t)); if(s.pan) s.pan.end=Math.max(s.pan.end,s.t);
           toast(`จบบทสอน! ประธานฝากมาว่า "ว่างเมื่อไรให้ตากเผื่อไว้ ${RULE.ahead} ถาด"`); }
       });
-    }, handIs('bag'));
+    }, handIs('bag') && s.hand.items.some(b=>b.order));
   }
   return {here, A};
 }
-function doAction(i){ const {A}=actions(); if(A[i] && A[i].ok){ A[i].fn(); live(true); } }
+function doAction(i){ const {A}=actions(); if(!A[i]) return; if(A[i].ok){ A[i].fn(); live(true); } else { say(whyNot(A[i].label) || needText(hereStation())); live(); } }
+/* ───────── คำพูดบนหัวตัวละคร ───────── */
+function say(text){ if(!text) return; s.say = {text, until: s.t + 3.5}; }
+// ปุ่มที่กดไม่ได้มักมีเหตุผลในวงเล็บอยู่แล้ว เช่น "ทอดกล้วยฉาบ (ไม่มีกล้วย ไปเก็บที่สวน)"
+function whyNot(label){ const m = /\(([^)]*[^\d\s)][^)]*)\)\s*$/.exec(label); return m && !/วิ$/.test(m[1]) ? m[1] : ''; }
+// เหตุผลตามจุด เมื่อไม่มีปุ่มบอกเหตุผล
+function needText(here){
+  const h = s.hand, kind = h && h.kind;
+  switch(here){
+    case 'garden': return h ? 'มือเต็มแล้ว วางของก่อนค่อยมาเก็บกล้วย' : '';
+    case 'order': return s.pending.length ? (h && kind!=='ticket' ? 'มือไม่ว่าง รับใบสั่งไม่ได้' : '') : 'ยังไม่มีออเดอร์ใหม่ ไปทำอย่างอื่นก่อน';
+    case 'rail': return 'ไม่มีใบสั่งในมือ ไปรับที่โต๊ะรับออเดอร์ก่อน';
+    case 'yard':
+      if(s.trash.yard) return 'มีของไหม้กองอยู่ เก็บไปทิ้งก่อน';
+      if(kind==='tray') return 'ถือถาดอยู่ เอาไปที่ชั้นพักหรือจุดแพ็ก';
+      if(h) return 'มือไม่ว่าง';
+      if(s.jobs.length >= slots()) return 'ลานเต็มแล้ว รอกล้วยแห้งก่อน';
+      if(s.stock<=0) return 'ไม่มีกล้วยเลย ไปเก็บที่สวนก่อน';
+      if(!s.tickets.some(o=>o.prod!=='chips')) return s.pending.length ? 'ยังไม่ได้แขวนใบสั่ง ครัวเลยไม่รู้ต้องตากอะไร' : 'ยังไม่มีออเดอร์กล้วยตาก';
+      return '';
+    case 'fryer': return s.pan && s.t < s.pan.end ? 'ยังทอดไม่เสร็จ รอแป๊บ' : '';
+    case 'shelf': return kind==='tray' ? '' : 'ไม่มีถาดให้พัก';
+    case 'pack': return kind && kind!=='tray' ? 'ถือของอย่างอื่นอยู่ มือไม่ว่าง' : 'ยังไม่มีอะไรให้แพ็ก';
+    case 'boss': return 'ถือถุงที่แพ็กแล้วมาให้ประธานเซ็น';
+    case 'send': return kind==='bag' ? '' : 'ไม่มีถุงในมือ ไปหยิบที่จุดแพ็กก่อน';
+    case 'table': return 'โต๊ะว่าง และมือก็ว่าง';
+    case 'bin': return 'ไม่มีของเสียในมือ';
+  }
+  return '';
+}
+function arrive(){
+  const here = hereStation(); if(!here || s.busy) return;
+  const {A} = actions(); if(A.some(a=>a.ok)) return;   // มีอะไรให้ทำ ไม่ต้องพูด
+  const off = A.map(a=>whyNot(a.label)).find(Boolean);
+  let text = off || needText(here);
+  const [gk] = goal();
+  // มีเหตุผลแล้วพูดแค่เหตุผล (สั้น อ่านทัน) · ไม่มีเหตุผลค่อยบอกว่าควรไปไหน
+  if(!text && gk && gk!==here && L.at[gk]) text = `ไม่ใช่ที่นี่ ไป${ST[gk]}ก่อน`;
+  say(text || 'ที่นี่ยังไม่มีอะไรให้ทำ');
+}
 
 /* ───────── ภารกิจ / บทสอน ───────── */
 function goal(){
@@ -598,7 +905,7 @@ function goal(){
   if(s.pan && s.t >= s.pan.end && !s.hand) return ['fryer', has('D') ? 'กล้วยฉาบทอดเสร็จแล้ว ไปตักขึ้น' : `กล้วยฉาบทอดเสร็จ! ไปตักก่อนไหม้ (เหลือ ${Math.max(0,Math.ceil(s.pan.end+RULE.burnFry-s.t))} วิ)`];
   // กำลังทอด (4 วิ) มือว่าง: ยืนรอที่กระทะ ถ้าเดินไปสวนกลับมาไม่ทัน ไหม้ทุกรอบ
   if(s.pan && s.t < s.pan.end && !s.hand && !has('D')) return ['fryer', `กำลังทอด รอตักอีก ${Math.ceil(s.pan.end - s.t)} วิ อย่าเดินไปไกล`];
-  if(s.yardDone.length && !s.hand){ const d0 = Math.min(...s.yardDone.map(c=>c.doneAt)); return ['yard', has('D') ? 'ตากเสร็จแล้ว ไปยกถาดลงจากลานตาก' : `ตากเสร็จแล้ว ไปยกถาดก่อนไหม้ (เหลือ ${Math.max(0,Math.ceil(d0+RULE.burnDry-s.t))} วิ)`]; }
+  if(s.yardDone.length && !s.hand){ const d0 = Math.min(...s.yardDone.map(c=>c.doneAt)); return ['yard', has('D') ? 'ตากเสร็จแล้ว ไปยกถาดลงจากลานตาก' : `ตากเสร็จแล้ว ไปยกถาดก่อนไหม้ (เหลือ ${Math.max(0,Math.ceil(d0+burnDry()-s.t))} วิ)`]; }
   // มือว่างแล้ว: ถ้าลานตาก (คอขวด) ว่างและมีออเดอร์รอตาก ให้เริ่มตากก่อนทำอย่างอื่น
   // เดิมลานตากอยู่ท้ายสุด พองานอื่นแทรกตลอด ออเดอร์แป้งไม่เคยได้ลงลานในกะ 1 · ตรงหลัก "อย่าให้คอขวดว่าง"
   const free0 = s.jobs.length < slots() && !s.trash.yard, yardT0 = s.tickets.some(o=>o.prod!=='chips');
@@ -628,31 +935,31 @@ function goal(){
   if(s.jobs.length) return [null,`รอกล้วยตากเสร็จอีก ${j} วิ`];
   return [null,'รอออเดอร์ถัดไป'];
 }
+// บทสอนแบบสั้น (ผู้ใช้ขอ 11 พ.ย. ใช้หลัก ux-writing): บอกที่ไป + ปุ่มที่ต้องกดก่อน เหตุผลไว้ท้าย ไม่เกิน ~14 คำ
 const TUT = {
-  walk:'แตะช่องบนแผนที่ ตัวละครจะเดินไปเอง (หรือใช้ลูกศร) · นาฬิกาเดินตลอด',
-  order:'ยืนบนโต๊ะรับออเดอร์ แล้วเลือกว่าจะรับกี่ใบ (ปุ่ม "รับ 1 ใบ" หรือ "รับทั้งหมด") ที่กล่องข้างล่าง',
-  rail:'ใบสั่งอยู่ในมือ ครัวยังไม่เห็น เอาไปแขวนที่ราวออเดอร์ก่อน กด "แขวนออเดอร์"',
-  garden:'ลานตากยังไม่มีกล้วย เดินไปสวน แล้วกด "เก็บกล้วย" · ระหว่างเก็บ ตัวละครต้องยืนรอจนเสร็จ',
-  yardDrop:'ถือกล้วยมาแล้ว ไปที่ลานตาก กด "วางกล้วย"',
-  yard:'กด "ตาก 1 ถาด" · ตากใช้ 10 วิ แต่เครื่องทำเอง ระหว่างนั้นเดินไปทำอย่างอื่นได้',
-  wait:'กล้วยกำลังตาก ดูแถบเขียวบนลานตาก · ลองไปรับออเดอร์ใหม่ระหว่างรอ',
-  lift:'ตากเสร็จแล้ว! กด "ยกถาดที่ตากเสร็จ" · หลังจบบทสอน ถ้าทิ้งไว้บนลานนานเกิน 15 วิ กล้วยจะไหม้',
-  shelfDrop:'ประธานสั่งให้พักถาดที่ชั้นพักก่อนแพ็ก เดินไปกด "วางพักบนชั้น"',
-  shelf:'พักแล้ว กด "ยกถาด" ยกกลับขึ้นมา (ยกขึ้นยกลงแบบนี้คุ้มไหมนะ?)',
-  packDrop:'ถือถาดมาแล้ว ไปที่จุดแพ็ก กด "วางถาด"',
+  walk:'แตะช่องบนแผนที่เพื่อเดิน นาฬิกาเดินตลอด',
+  order:'ไปโต๊ะรับออเดอร์ กด "รับ 1 ใบ"',
+  rail:'ไปราวออเดอร์ กด "แขวนออเดอร์" ครัวจะได้เห็น',
+  garden:'ไปสวน กด "เก็บกล้วย"',
+  yardDrop:'ไปลานตาก กด "วางกล้วย"',
+  yard:'กด "ตาก 1 ถาด" ระหว่างตากไปทำอย่างอื่นได้',
+  wait:'กำลังตาก ระหว่างรอไปรับออเดอร์ใหม่ได้',
+  lift:'กด "ยกถาดที่ตากเสร็จ" ทิ้งไว้นานเกินจะไหม้',
+  shelfDrop:'ประธานสั่งพักถาดก่อน ไปชั้นพัก กด "วางพักบนชั้น"',
+  shelf:'กด "ยกถาด" (ยกขึ้นยกลงแบบนี้คุ้มไหม?)',
+  packDrop:'ไปจุดแพ็ก กด "วางถาด"',
   pack:'กด "แพ็ก 1 ถุง"',
   pick:'กด "หยิบถุงไปส่ง"',
-  boss:'ประธานต้องเซ็นทุกถุงก่อนส่ง เดินไปกด "ขอลายเซ็น" แล้วยืนรอ',
-  send:'ไปที่รถ แล้วกด "ส่งของ" · ส่งถุงแรกได้ = จบบทสอน',
-  busy:'กำลังทำงานอยู่ รอแถบเหลืองบนหัวเต็ม',
-  fryer:'กล้วยฉาบ: กด "ทอด" แล้วไปทำอย่างอื่นได้ · ทอดเสร็จต้องรีบกลับมา "ตักขึ้น" ภายใน 5 วิ ไม่งั้นไหม้',
-  trash:'มีของเสียกองอยู่ กด "เก็บของเสีย" แล้วเอาไปทิ้ง · ยังไม่ทิ้ง จุดนี้ใช้ต่อไม่ได้',
-  bin:'ไปที่ถังขยะ กด "ทิ้งลงถัง"',
-  table:'มีของวางไว้บนโต๊ะ เดินไปหยิบกลับมาทำต่อ',
-  mill:'แป้งกล้วยต้องตากแล้วบดก่อนแพ็ก ไปที่เครื่องบด กด "บดเป็นแป้ง"'
+  boss:'ไปหาประธาน กด "ขอลายเซ็น" ทุกถุงต้องเซ็นก่อนส่ง',
+  send:'ไปรถ กด "ส่งของ" ส่งได้ก็จบบทสอน',
+  busy:'รอแถบเหลืองบนหัวเต็ม',
+  fryer:'กด "ทอดกล้วยฉาบ" เสร็จแล้วตักขึ้นภายใน 5 วิ ไม่งั้นไหม้',
+  trash:'กด "เก็บของเสีย" แล้วเอาไปทิ้งที่ถังขยะ',
+  bin:'ไปถังขยะ กด "ทิ้งลงถัง"',
+  table:'หยิบของบนโต๊ะกลับมาทำต่อ'
 };
 const TUT_ORDER = ['walk','order','rail','garden','yardDrop','yard','wait','lift','shelfDrop','shelf','packDrop','pack','pick','boss','send'];
-function tutBox(gk){
+function tutKey(gk){
   let k;
   if(!s.moved) k='walk';
   else if(s.busy) k='busy';
@@ -662,9 +969,14 @@ function tutBox(gk){
   else if(gk==='shelf') k = handIs('tray') ? 'shelfDrop' : 'shelf';
   else if(gk==='pack') k = handIs('tray') ? 'packDrop' : s.ready.some(c=>c.order) ? 'pick' : 'pack';
   else k = gk;
-  const n = TUT_ORDER.indexOf(k);
-  return `<div class="quest tut"><b>บทสอน ${n>=0?(n+1)+'/'+TUT_ORDER.length:''}</b><span class="big2">${TUT[k]}</span>
-    ${s.tutCoin?'<small>เหรียญหล่น! ยังไม่ต้องรู้ว่าแปลว่าอะไร สังเกตไว้ว่าเกิดตอนทำอะไร</small>':''}</div>`;
+  return k;
+}
+/* คำสั่งบทสอนอยู่บนกล่องคำพูดเหนือหัวตัวละคร (ผู้ใช้ขอ 11 พ.ย.) กล่องภารกิจเหลือแค่ขั้นที่เท่าไรกับจุดที่ต้องไป */
+const tutText = gk => { const k = tutKey(gk); if(k==='wait' && !s.jobs.length) return goal()[1]; return TUT[k] || needText(gk) || ''; };   // ยังไม่มีอะไรตากอยู่ ใช้ข้อความภารกิจแทน
+function tutBox(gk){
+  const k = tutKey(gk), n = k==='wait' && !s.jobs.length ? -1 : TUT_ORDER.indexOf(k);   // ยังรอออเดอร์ ไม่นับเป็นขั้น
+  const where = k==='walk' ? 'แตะแผนที่เพื่อเดิน' : k==='busy' ? 'รอทำงานเสร็จ' : gk && ST[gk] ? `จุดต่อไป: ${ST[gk]}` : 'ดูคำพูดตัวละคร';
+  return `<div class="quest tut"><b>บทสอน ${n>=0?(n+1)+'/'+TUT_ORDER.length:''} ›</b><span>${where}</span></div>`;
 }
 
 function endShift(){
@@ -673,12 +985,18 @@ function endShift(){
   s.coins[s.shift-1].I += left + spare;
   if(left+spare) log(`I · จบกะ เหลือกล้วย ${left} หวี ถาดไม่มีคนสั่ง ${spare}`);
   const coins = Object.values(s.coins[s.shift-1]).reduce((a,b)=>a+b,0);
-  const ok = s.delivered.filter(c=>c.ok).length, total=(two()?RULE.orders2:RULE.orders1).length;
-  const buyCost = two() ? spent() : 0;
-  s.stats[s.shift-1] = {ok, total, coins, left, spare, sent:s.delivered.length, buyCost,
+  const ok = s.delivered.filter(c=>c.ok).length, total = s.oi;   // นับเฉพาะออเดอร์ที่มาจริง (กะ 1 อาจเลื่อนออกไปจนหมดกะ)
+  const buyCost = spentAt(s.shift-1);
+  s.stats[s.shift-1] = {ok, total, coins, left, spare, sent:s.delivered.length, buyCost, cancelled:s.cancelled,
     income: ok*RULE.bagPrice, waste: coins*RULE.coinCost, score: ok*RULE.bagPrice - coins*RULE.coinCost - buyCost};
-  if(!two()) s.trail1 = s.trail.slice();
-  screen = two() ? 'debrief' : 'pour'; render();
+  // ดาวรายกะ (ผู้ใช้ขอ 12 พ.ย.): ส่งทันถึงเป้า · เหรียญไม่เกินเป้า · ไม่มีลูกค้ายกเลิก · ดาวละ starBonus ฿
+  const g = RULE.rounds[s.shift-1].goal, stars = [ok >= g.ok, coins <= g.coins, !s.cancelled];
+  Object.assign(s.stats[s.shift-1], {steps: s.trail.length, stars, bonus: stars.filter(Boolean).length*RULE.starBonus});
+  s.stats[s.shift-1].score += s.stats[s.shift-1].bonus;
+  s.cash += ok*RULE.bagPrice - coins*RULE.coinCost + s.stats[s.shift-1].bonus;   // ซื้อของหักไปแล้วตอนซื้อ
+  s.stats[s.shift-1].cash = s.cash;
+  s.trail1 = s.trail.slice();   // เส้นทางกะล่าสุด ใช้ในหน้าจัดร้าน
+  screen = s.shift>=RULE.rounds.length ? 'debrief' : 'pour'; render();
 }
 
 /* ───────── วาด ───────── */
@@ -688,7 +1006,13 @@ function floatAt(p, html){
   d.style.left=(p[0]*t+t*.2)+'px'; d.style.top=(p[1]*t)+'px'; m.appendChild(d); setTimeout(()=>d.remove(),1000);
 }
 const coinRow = o => COINS.flatMap(c=>Array(o[c]||0).fill(c)).map(c=>`<span class="coin">${LABEL[c]}</span>`).join('');
-function tileSize(){ return Math.max(26, Math.min(58, Math.floor((Math.min(window.innerWidth,980)-40)/W))); }
+/* จอกว้างแนวนอน (iPad แนวนอน / คอม): แผนที่ซ้าย แผงข้อมูลขวา (ผู้ใช้ขอ 12 พ.ย. ทำเวอร์ชัน iPad คอม มือถือ) */
+const wide = () => innerWidth >= 900 && innerWidth > innerHeight * 1.15;
+const SIDE_W = 380;
+function tileSize(){
+  if(wide()){ const avail = Math.min(innerWidth, 1500) - 40 - SIDE_W - 24;
+    return Math.max(26, Math.min(58, Math.floor(avail/W), Math.floor((innerHeight - 110)/H))); }
+  return Math.max(24, Math.min(58, Math.floor((Math.min(window.innerWidth,980)-(innerWidth<420?22:40))/W))); }   // จอเล็กลดขอบข้าง ไม่ให้เลื่อนแนวนอน
 
 /* หน้าเล่น: วาดพื้นแผนที่ครั้งเดียว แล้ว live() อัปเดตเฉพาะส่วนที่ขยับทุก 0.1 วินาที
    แต่ละกล่องวาดใหม่เมื่อเนื้อหาเปลี่ยนเท่านั้น ไม่งั้นปุ่มที่กำลังถูกกดจะหายจากใต้นิ้ว */
@@ -699,20 +1023,90 @@ function playShell(){
     const crate=L.crates.some(([a,b])=>a===x&&b===y), mark=L.marks.some(([a,b])=>a===x&&b===y);
     const outside = y<=1 && x<=1 || st==='garden';
     tiles += `<div class="tile ${mark?'mark':''}" style="background-image:url(${SPR[outside?'grass':'floor']})" onclick="walkTo([${x},${y}])">
-      ${st?sp(st)+`<span class="label">${ST[st]}</span>`:crate?sp('crate'):''}</div>`;
+      ${st?sp(stSpr(st))+`<span class="label">${st==='order'&&hasPos()?'คอมรับออเดอร์':ST[st]}</span>`:crate?sp('crate'):''}</div>`;
   }
-  return `
-  <div class="hud" id="hud"></div>
+  const top = `<div class="hud" id="hud"></div>
+  <div class="card jarbar"><b>โหลเหรียญ</b><div class="jar" id="jar"></div></div>
   <div id="quest"></div>
-  <div id="inv"></div>
-  <div class="wrap" style="--t:${t}px;--w:${W}"><div class="map">${tiles}</div><div class="dyn" id="dyn"></div></div>
-  <div class="card action" id="act"></div>
-  <div class="card"><div class="jar" id="jar"></div></div>
-  <p class="keys">ลูกศร/WASD เดิน · 1–4 กดปุ่มงาน · P หยุดเกม</p>
-  <div id="modal"></div>`;
+  <div id="inv"></div>`;
+  const map = `<div class="wrap" style="--t:${t}px;--w:${W}"><div class="map">${tiles}</div><div class="dyn" id="dyn"></div></div>
+  <div class="go" id="go" aria-label="เดินไปที่จุดต่าง ๆ"></div>`;
+  const bottom = `<div class="card action" id="act"></div>
+  <p class="keys">ลูกศร/WASD เดิน · 1–4 กดปุ่มงาน · P หยุดเกม</p>`;
+  return wide() ? `<div class="pg wide"><div class="pg-l">${map}</div><div class="pg-r">${top}${bottom}</div></div><div id="modal"></div>`
+               : `${top}${map}${bottom}<div id="modal"></div>`;
 }
 const memo = {};
-function put(id, html){ if(memo[id]!==html){ memo[id]=html; const el=document.getElementById(id); if(el) el.innerHTML=html; } }
+/* เลือกเฟรมตัวละครตามสิ่งที่กำลังทำ */
+function heroPose(){
+  const f2 = Math.floor(s.t*4)%2 + 1, dir = s.face || 'D';
+  const lab = s.busy && s.busy.label;
+  if(lab){
+    const k = ACT_POSE[lab] || (lab.startsWith('จัดร้าน') ? 'G' : null);
+    if(k === 'look') return Math.floor(s.t*2)%2 ? 'heroL0' : 'heroR0';   // หันซ้ายขวาเหมือนกำลังมองหา
+    if(k === 'S') return 'heroS1';
+    if(k) return 'hero'+k+f2;
+  }
+  const atFryer = L.at.fryer && s.pos[0]===L.at.fryer[0] && s.pos[1]===L.at.fryer[1] && !s.path.length;
+  if(atFryer && !s.busy && s.pan && s.t < s.pan.end) return 'heroF'+f2;
+  if(s.path.length && !s.busy){   // หันไปทางช่องถัดไปทันทีที่เริ่มเดิน
+    const [nx,ny] = s.path[0], dx = nx-s.pos[0], dy = ny-s.pos[1];
+    // ช่องละ 2 รูป: ครึ่งแรกก้าว ครึ่งหลังยืน (ตัวลอยขึ้นนิด) · ช่องถัดไปสลับเท้า
+    return 'hero'+(dx>0?'R':dx<0?'L':dy<0?'U':'D')+(walkPhase()<.5 ? ((s.pos[0]+s.pos[1])&1)+1 : 0);
+  }
+  return 'hero'+dir+'0';
+}
+const walkStep = () => RULE.walk * (two() && s.equip.has('cart') ? 0.6 : 1);
+const walkPhase = () => s.moveAcc / walkStep();
+const ACT_POSE = {
+  'เก็บกล้วย':'P', 'ใส่กล้วยลงกระทะ':'F', 'ตักกล้วยฉาบ':'F',
+  'ใส่กล้วยลงลานตาก':'Y', 'ตากเผื่อ':'Y', 'แพ็ก':'K', 'ส่งของ':'N',
+  'รับออเดอร์':'W', 'แขวนออเดอร์':'W', 'รอประธานเซ็น':'S',
+  'เก็บของเสีย':'G', 'ทิ้งของเสีย':'G', 'วางกล้วย':'G', 'ยกถาดลงจากลาน':'G', 'วางของบนโต๊ะ':'G', 'หยิบของจากโต๊ะ':'G',
+  'วางพักบนชั้น':'G', 'ยกถาด':'G', 'วางถาด':'G', 'หยิบถุง':'G',
+  'สอนคนใหม่หาของ':'look', 'เปลี่ยนธูป':'G'
+};
+/* ไอคอนในปุ่ม (ผู้ใช้ขอ 11 พ.ย.): รูปของที่เกี่ยวข้อง + ลูกศร (ขึ้น = หยิบ/ยก, ลง = วาง/ทิ้ง, ขวา = ส่ง) */
+const handSpr = () => s.hand ? itemSpr(s.hand.kind, s.hand.items) : 'trayDry';
+const BTN_ICON = [
+  [/^เก็บกล้วย/, ()=>['banana','arUp']],
+  [/^ทอด/, ()=>[['iFry1','iFry2']]],
+  [/^ตักกล้วยฉาบ/, ()=>['trayChips','arUp']],
+  [/^ตาก/, ()=>[['iSun1','iSun2']]],
+  [/^แพ็ก/, ()=>[['iPack1','iPack2']]],
+  [/^รับ/, ()=>['ticket','arUp']],
+  [/^แขวน/, ()=>['rail','arDown']],
+  [/^ส่งของ/, ()=>['send','arRight']],
+  [/เซ็น/, ()=>['sign']],
+  [/^เก็บของเสีย/, ()=>['bad','arUp']],
+  [/^ทิ้ง/, ()=>['bin','arDown']],
+  [/^เปลี่ยนธูป/, ()=>['incense']],
+  [/^วาง/, ()=>[handSpr(),'arDown']],
+  [/^ยกถาดที่ตากเสร็จ/, ()=>['trayDry','arUp']],
+  [/^ยกถาด/, ()=>[s.shelf.length ? itemSpr('tray',[s.shelf[0]]) : 'trayDry','arUp']],
+  [/^หยิบถุง/, ()=>[s.ready.length ? itemSpr('bag',[s.ready.find(c=>c.order)||s.ready[0]]) : 'bagDry','arUp']],
+  [/^หยิบ/, l=>{ const h = s.table.find(h=>l.includes(KIND_N[h.kind])); return [h ? itemSpr(h.kind,h.items) : 'trayDry','arUp']; }],
+];
+function actIcon(label){
+  const m = BTN_ICON.find(([re])=>re.test(label)); if(!m) return '';
+  const [base, arr] = m[1](label);
+  const img = (n, c) => `<i class="${c}" style="background-image:url(${SPR[n]})"></i>`;
+  const pic = Array.isArray(base) ? img(base[0],'f1') + img(base[1],'f2') : img(base,'');
+  return `<span class="ai">${pic}${arr ? img(arr,'arr '+arr) : ''}</span>`;
+}
+/* ตัวละครเป็น element เดียวที่อยู่ตลอด (เช็กบัค 11 พ.ย.): เดิมวาดใหม่ทั้งชั้นทุก 0.1 วิ ตัวละครถูกสร้างใหม่ทุกครั้ง
+   CSS transition เลยไม่ทำงาน (กระโดดทีละช่อง) และท่าทาง/กล่องคำพูดเริ่มนับใหม่ทุกจังหวะ · ตอนนี้แก้เฉพาะส่วนที่เปลี่ยน */
+function drawHero(dyn, h){
+  let el = dyn.querySelector(':scope>.hero');
+  if(!el){ el = document.createElement('div'); el.innerHTML = '<div class="hv"></div><div class="hpg"></div><div class="hs"></div>'; dyn.appendChild(el); el._m = {}; }
+  const m = el._m, part = (k, sel, v) => { if(m[k]!==v){ m[k]=v; el.querySelector(sel).innerHTML = v; } };
+  if(m.cls!==h.cls){ m.cls=h.cls; el.className=h.cls; }
+  if(m.dur!==h.dur){ m.dur=h.dur; el.style.transitionDuration=h.dur; }
+  if(m.left!==h.left){ m.left=h.left; el.style.left=h.left; }
+  if(m.top!==h.top){ m.top=h.top; el.style.top=h.top; }
+  part('look','.hv',h.look); part('prog','.hpg',h.prog); part('bubble','.hs',h.bubble);
+}
+function put(id, html){ if(memo[id]!==html){ memo[id]=html; const el=document.getElementById(id); if(el) el.innerHTML=html; return true; } return false; }
 function live(force){
   if(screen!=='play') return;
   if(force) for(const k in memo) delete memo[k];
@@ -729,33 +1123,62 @@ function live(force){
   let d = '';
   if(gp) d += at(gp,'','goal');
   const ab = L.at;
-  d += at(ab.order, badge(s.pending.length));
-  d += at(ab.yard, badge(s.tickets.length) + (s.yardDone.length ? sp('tray','spr hand') : '') + s.jobs.map((j,i)=>`<div class="prog" style="top:${4+i*10}px"><i style="width:${Math.min(100,(s.t-j.start)/(j.end-j.start)*100)}%"></i></div>`).join(''));
+  // หลอดเวลาที่เคาน์เตอร์ (ผู้ใช้ขอ 12 พ.ย.): ใบที่รอนานสุด · ส้ม = เหลือกี่วิก่อนได้เหรียญ W · แดง = เหลือกี่วิก่อนลูกค้ายกเลิก
+  let ctr = '';
+  if(s.pending.length){ const o = s.pending.reduce((a,b)=>a.t<=b.t?a:b), age = s.t - o.t, wl = RULE.wEvery - age;
+    const span = RULE.cancelAfter + (o.extra||0) - RULE.wEvery, cl = RULE.cancelAfter + (o.extra||0) - age;
+    const [w, col] = wl > 0 ? [wl/RULE.wEvery, '#e0a02e'] : [Math.max(0, cl/span), '#c2452f'];
+    ctr = `<div class="prog" style="top:-6px"><i style="width:${Math.round(w*100)}%;background:${col}"></i></div>`; }
+  d += at(ab.order, ctr + badge(s.pending.length));
+  if(ab.incense){ const left = Math.max(0, s.incenseAt - s.t);
+    d += at(ab.incense, `<div class="prog" style="top:-6px"><i style="width:${s.ghost?0:Math.round(left/RULE.incenseEvery*100)}%;background:${left<=10?'#c2452f':'#e0a02e'}"></i></div>`); }
+  d += at(ab.yard, (s.yardDone.length ? sp('trayDry','spr hand') : '') + s.jobs.map((j,i)=>`<div class="prog" style="top:${4+i*10}px"><i style="width:${Math.min(100,(s.t-j.start)/(j.end-j.start)*100)}%"></i></div>`).join(''));
   // แถบเตือนไหม้: ส้มกำลังทอด · แดงหดลง = เหลือเวลาก่อนไหม้
   const redBar = (from, span) => `<div class="prog" style="top:-6px"><i style="width:${Math.max(0,100-(s.t-from)/span*100)}%;background:#c2452f"></i></div>`;
-  if(s.yardDone.length && !has('D')) d += at(ab.yard, redBar(Math.min(...s.yardDone.map(c=>c.doneAt)), RULE.burnDry));
+  if(s.yardDone.length && !has('D')) d += at(ab.yard, redBar(Math.min(...s.yardDone.map(c=>c.doneAt)), burnDry()));
   if(s.pan && ab.fryer) d += at(ab.fryer, sp('chips','spr hand') + (s.t < s.pan.end
     ? `<div class="prog" style="top:-6px"><i style="width:${(s.t-s.pan.start)/(s.pan.end-s.pan.start)*100}%"></i></div>`
     : has('D') ? '' : redBar(s.pan.end, RULE.burnFry)));
-  if(ab.shelf) d += at(ab.shelf, badge(s.shelf.length));
-  if(ab.table) d += at(ab.table, (s.table.length ? sp(s.table[s.table.length-1].kind,'spr hand') : '') + badge(s.table.length));
-  d += at(ab.pack, badge(s.packIn.length + s.ready.length));
+  // ชั้นพัก: วางถาดให้เห็นทีละถาด สูงสุด 3 ถาด แยกรูปกล้วยตาก/กล้วยฉาบ
+  const SHELF_AT = ['right:4%;bottom:56%','right:4%;bottom:26%','right:auto;left:4%;bottom:56%'];
+  if(ab.shelf) d += at(ab.shelf, s.shelf.slice(0,3).map((c,i)=>`<i class="spr hand still" style="${SHELF_AT[i]};background-image:url(${SPR[itemSpr('tray',[c])]})"></i>`).join('') + badge(s.shelf.length));
+  if(ab.table) d += at(ab.table, (s.table.length ? spH(s.table[s.table.length-1],'spr hand') : '') + badge(s.table.length));
+  // จุดแพ็ก: ถุงที่แพ็กเสร็จ หรือถาดที่รอแพ็ก
+  d += at(ab.pack, (s.ready.length ? sp(itemSpr('bag',[s.ready[0]]),'spr hand') : s.packIn.length ? sp(itemSpr('tray',[s.packIn[0]]),'spr hand') : '') + badge(s.packIn.length + s.ready.length));
   const w = s.waste;   // นับเฉพาะที่เอามาทิ้งแล้ว
   for(const k of trashSpots()) if(ab[k]) d += at(ab[k], sp('bad','spr hand trash') + `<span class="badge" style="left:0;right:auto;background:#c2452f">${s.trash[k]}</span>`);
   d += at(ab.bin, `<div class="tile" style="width:100%;height:100%;cursor:default">${sp(w?'bad':'bin')}<span class="label">${ST.bin}</span>${badge(w)}</div>`);
-  const hand = s.hand ? sp(s.hand.kind,'spr hand') : '';
+  const hand = s.hand ? spH(s.hand,'spr hand') : '';
   const signed = handIs('bag') && !has('O1') && s.hand.items.every(b=>b.signed) ? `<i class="spr hand" style="right:auto;left:-6%;background-image:url(${SPR.sign})"></i>` : '';
   const prog = s.busy ? `<div class="prog busy" style="top:-6px"><i style="width:${(s.t-s.busy.start)/(s.busy.end-s.busy.start)*100}%"></i></div>` : '';
-  d += `<div class="hero ${(s.pos[0]+s.pos[1])&1?'bob':''}" style="left:${s.pos[0]*t}px;top:${s.pos[1]*t}px">${sp('hero')}${hand}${signed}${prog}</div>`;
+  // คำพูดเหตุผล (3.5 วิ) ขึ้นแทนคำสั่งบทสอนชั่วคราว แล้วกลับมาเป็นคำสั่งบทสอน
+  const bubble = s.say && s.t < s.say.until ? {text:s.say.text, cls:''} : s.tut && !s.modal ? {text:tutText(gk), cls:'tutsay'} : null;
+  const hp = heroPose(), bob = (s.path.length && !s.busy && hp.endsWith('0')) || hp==='heroS1' && Math.floor(s.t*2)%2;
+  const bubbleHTML = bubble ? `<div class="say ${bubble.cls} ${s.pos[0]<2?'l':s.pos[0]>W-3?'r':''} ${s.pos[1]<1?'dn':''}">${bubble.text}</div>` : '';
+  const heroState = {cls:'hero'+(bob?' bob':'')+(s.koUntil > s.t ? ' ko' : ''), left:s.pos[0]*t+'px', top:s.pos[1]*t+'px', dur:walkStep()+'s', look:sp(hp)+hand+signed, prog, bubble:bubbleHTML};
   if(s.tut && (gp || !s.moved)){ const p = gp || [6,4]; d += `<div class="pointer" style="left:${(p[0]+.5)*t}px;top:${p[1]*t}px">${gp?'ที่นี่':'แตะช่องไหนก็ได้'}</div>`; }
   // .float ที่กำลังลอยอยู่ต้องไม่หาย: แยกไว้ใน layer ของตัวเอง
   const dyn = document.getElementById('dyn');
   if(dyn){ let base = dyn.querySelector('.base'); if(!base){ base=document.createElement('div'); base.className='base'; dyn.prepend(base); }
-    if(memo.dyn!==d){ memo.dyn=d; base.innerHTML=d; } }
+    if(memo.dyn!==d){ memo.dyn=d; base.innerHTML=d; }
+    drawHero(dyn, heroState);
+    let gh = dyn.querySelector(':scope>.ghost');
+    if(s.ghost){ if(!gh){ gh = document.createElement('div'); gh.className = 'ghost'; gh.innerHTML = sp('tani'); dyn.appendChild(gh); }
+      gh.style.left = s.ghost.pos[0]*t+'px'; gh.style.top = s.ghost.pos[1]*t+'px'; gh.style.transitionDuration = walkStep()*RULE.ghostSpeed+'s'; }
+    else if(gh) gh.remove();
+    const wr = dyn.parentElement; if(wr) wr.classList.toggle('haunt', !!s.ghost); }
   // ปุ่มงาน
   const {here, A} = actions();
-  put('act', `<b class="row" style="gap:6px">${s.busy?`กำลัง${s.busy.label}…`:here?`<span style="width:28px;height:28px;display:inline-block">${sp(here)}</span>${ST[here]}`:'เดินไปที่จุดต่าง ๆ'}</b>
-    <div class="row" style="margin-top:8px">${A.map((a,i)=>`<button ${a.ok?'':'disabled'} onclick="doAction(${i})">${a.label}</button>`).join('')}</div>`);
+  put('act', `<b class="row" style="gap:6px">${s.busy?`กำลัง${s.busy.label}…`:here?`<span style="width:28px;height:28px;display:inline-block">${sp(stSpr(here))}</span>${ST[here]}`:'เดินไปที่จุดต่าง ๆ'}</b>
+    <div class="row" style="margin-top:8px">${A.map((a,i)=>`<button class="${a.ok?'':'off'}" aria-disabled="${!a.ok}" onclick="doAction(${i})">${actIcon(a.label)}${a.label}</button>`).join('')}</div>`);
+  // แถวปุ่ม "เดินไป" (ตรวจ a11y 11 พ.ย.): ช่องแผนที่บนมือถือเล็กแค่ ~26 px แตะพลาดง่าย ปุ่มนี้สูง 44 px
+  // ตัวละครยังเดินจริงทีละช่อง ระยะทางยังมีผลเหมือนเดิม
+  const hs = hereStation();
+  const goKeys = Object.keys(ST).filter(k=>L.at[k]);
+  if(put('go', goKeys.map(k=>`<button class="gob ${k===gk?'tgt':''} ${k===hs?'here':''}" onclick="walkTo(L.at['${k}'])">${sp(stSpr(k))}${k==='order'&&hasPos()?'คอม':ST[k]}</button>`).join(''))){
+    const g = document.getElementById('go'), tg = g && g.querySelector('.tgt');
+    if(tg && memo.goTgt!==gk){ memo.goTgt = gk; g.scrollLeft = tg.offsetLeft - g.clientWidth/2 + tg.offsetWidth/2; }
+  }
   put('jar', coinRow(s.coins[s.shift-1]) || '<span class="soft">ยังไม่มีเหรียญ</span>');
   put('inv', invHTML());
   put('modal', modalHTML());
@@ -763,7 +1186,7 @@ function live(force){
 function invHTML(){
   // ช่องมือ: ของที่ถืออยู่ + จำนวน
   const h = s.hand, n = !h ? '' : h.n ?? h.items.length;
-  const hand = `<div class="slot" title="ของในมือ">${h ? sp(h.kind) + `<span class="n">${n}</span>` : ''}</div>`;
+  const hand = `<div class="slot" title="ของในมือ">${h ? spH(h) + `<span class="n">${n}</span>` : ''}</div>`;
   // ใบออเดอร์ที่รับแล้ว: เรียงจากเก่าสุด สีเวลาเปลี่ยนตามที่เหลือก่อนเลยเป้า
   const where = [];
   s.tickets.forEach(o=>where.push([o,'รอตาก']));
@@ -772,15 +1195,15 @@ function invHTML(){
   s.yardDone.forEach(c=>c.order && where.push([c.order,'ตากเสร็จ รอยก']));
   [...s.shelf,...s.packIn].forEach(c=>c.order && where.push([c.order,'รอแพ็ก']));
   s.ready.forEach(c=>c.order && where.push([c.order,'แพ็กแล้ว']));
-  if(handIs('bag')) s.hand.items.forEach(c=>where.push([c.order, c.signed?'เซ็นแล้ว':'ถือไว้']));
+  if(handIs('bag')) s.hand.items.forEach(c=>c.order && where.push([c.order, c.signed?'เซ็นแล้ว':'ถือไว้']));
   if(handIs('tray')) s.hand.items.forEach(c=>c.order && where.push([c.order, c.mill?'ถือไปบด':'ถือถาด']));
   if(handIs('ticket')) s.hand.items.forEach(o=>where.push([o,'ยังไม่ได้แขวน']));
   tableItems('ticket').forEach(o=>where.push([o,'วางบนโต๊ะ ยังไม่ได้แขวน']));
   [...tableItems('tray'),...tableItems('bag')].forEach(c=>c.order && where.push([c.order,'วางบนโต๊ะ']));
   where.sort((a,b)=>a[0].t-b[0].t);
-  const rc = where.map(([o,st])=>{ const left = Math.ceil(RULE.onTime - (s.t - o.t));
-    const col = left<=0 ? '#c2452f' : left<30 ? '#e0702e' : '#2f8a3e';
-    return `<div class="rcpt" title="${PROD[o.prod].n} #${o.id} · ${st}" ${o.hung===undefined?'style="box-shadow:inset 0 0 0 2px #c2452f;background:#fde3d8"':''}>${sp(PROD[o.prod].spr)}#${o.id}<span class="tm" style="background:${col}">${left>0?left+'s':'ช้า'}</span></div>`; }).join('');
+  const rc = where.map(([o,st])=>{ const left = Math.ceil(RULE.onTime - (s.t - o.t - (o.extra||0))), toCancel = Math.ceil(RULE.cancelAfter - (s.t - o.t - (o.extra||0)));
+    const col = left<=0 ? (toCancel<=RULE.cancelWarn ? '#2b1d14' : '#c2452f') : left<30 ? '#e0702e' : '#2f8a3e';
+    return `<div class="rcpt" title="${PROD[o.prod].n} #${o.id} · ${st}" ${o.hung===undefined?'style="box-shadow:inset 0 0 0 2px #c2452f;background:#fde3d8"':''}>${sp(PROD[o.prod].spr)}#${o.id}<span class="tm" style="background:${col}">${left>0?left+'s':s.tut?'ช้า':'ยกเลิก'+Math.max(0,toCancel)}</span></div>`; }).join('');
   const waiting = s.pending.length ? `<span class="inv-label">รอรับอีก ${s.pending.length}</span>` : '';
   return `<span class="inv-label">มือ</span>${hand}<span class="inv-label">ใบออเดอร์</span>
     <div class="receipts">${rc || '<span class="soft" style="font-size:13px;align-self:center">ยังไม่ได้รับ</span>'}</div>${waiting}`;
@@ -823,7 +1246,7 @@ function cycleLen(lay){
 function arrClick(x,y){
   const lay = layout(true);
   const hit = Object.keys(lay.at).find(k=>lay.at[k] && lay.at[k][0]===x && lay.at[k][1]===y);
-  if(hit){ if(MOVABLE.includes(hit)){ arrSel = arrSel===hit ? null : hit; } else toast('สวนกล้วยย้ายไม่ได้ ต้นกล้วยปลูกอยู่ตรงนั้น'); render(); return; }
+  if(hit){ if(MOVABLE.includes(hit)){ arrSel = arrSel===hit ? null : hit; } else toast({garden:'สวนกล้วยย้ายไม่ได้ ต้นกล้วยปลูกอยู่ตรงนั้น', order:'เคาน์เตอร์รับออเดอร์ย้ายไม่ได้ ลูกค้ามาที่หน้าร้าน', send:'รถส่งของย้ายไม่ได้ จอดอยู่ริมถนน'}[hit] || 'จุดนี้ย้ายไม่ได้'); render(); return; }
   if(!arrSel){ toast('แตะจุดที่มีกรอบประสีส้มก่อน'); return; }
   if(lay.crates.some(([a,b])=>a===x&&b===y)){ toast('ตรงนั้นมีลังวางอยู่'); return; }
   arrHist.push([arrSel, s.layout[arrSel].slice()]); s.layout[arrSel] = [x,y]; arrSel = null; render();
@@ -858,7 +1281,7 @@ function arrangeView(){
     : `<div class="quest tut"><b>ขั้น 1 ›</b><span class="big2">แตะจุดที่มี<b style="color:#e0702e">กรอบประสีส้ม</b>เพื่อเลือกจุดที่จะย้าย</span></div>`;
   return `
   <div class="card center"><h2>จัดร้านใหม่</h2>
-    <p class="soft">ย้ายจุดที่ต้องเดินไปมาบ่อยให้อยู่ใกล้กัน · สวนกล้วยย้ายไม่ได้ ลองย้ายลานตากไปใกล้สวนแทน</p></div>
+    <p class="soft">ย้ายจุดที่ต้องเดินไปมาบ่อยให้อยู่ใกล้กัน สวนกล้วย เคาน์เตอร์ และรถส่งของย้ายไม่ได้ ลองย้ายลานตากไปใกล้สวนแทน</p></div>
   ${step}
   <div class="wrap" style="--t:${t}px;--w:${W}">
     <div class="map">${tiles}</div>
@@ -868,44 +1291,63 @@ function arrangeView(){
     <p class="soft">ระยะเดิน 1 รอบงาน (รับออเดอร์ → สวน → ลานตาก → แพ็ก → ส่ง)</p>
     <p class="big px">${before} → <span class="${diff>0?'ok':diff<0?'no':''}">${after}</span> ช่อง</p>
     <p>${diff>0?`<b class="ok">เดินน้อยลง ${diff} ช่องต่อรอบ</b>`:diff<0?`<b class="no">เดินมากขึ้น ${-diff} ช่องต่อรอบ</b>`:'ยังไม่ได้ย้าย'}</p>
-    <p class="soft">ย้ายแล้ว ${moved} จุด · ต้นกะ 2 เสียเวลาจัดร้าน ${moved*RULE.moveEach} วินาที</p>
+    <p class="soft">ย้ายแล้ว ${moved} จุด · ต้นกะ ${s.shift+1} เสียเวลาจัดร้าน ${moved*RULE.moveEach} วินาที</p>
     <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">
       <button onclick="arrUndo()" ${arrHist.length?'':'disabled'}>↶ ย้อน 1 ครั้ง</button>
       <button onclick="arrReset()">คืนค่าเดิม</button>
-      <button onclick="arrTrail=!arrTrail;render()">${arrTrail?'ซ่อน':'โชว์'}เส้นทางกะ 1</button>
+      <button onclick="arrTrail=!arrTrail;render()">${arrTrail?'ซ่อน':'โชว์'}เส้นทางกะ ${s.shift}</button>
     </div>
-    <p class="soft">${arrTrail?`เส้นแดง = ทางที่เดินจริงในกะ 1 (${tr.length} ก้าว) · เส้นเข้ม = เดินซ้ำเยอะ`:''}</p>
+    <p class="soft">${arrTrail?`เส้นแดงคือทางที่เดินจริงในกะ ${s.shift} (${tr.length} ก้าว) ตรงไหนสีเข้ม แปลว่าเดินผ่านซ้ำบ่อย`:''}</p>
     <button class="go" onclick="arrSel=null;arrHist=[];go('sop')">ต่อ ▶</button>
   </div>`;
 }
 
+/* ขั้นตอนเต็มในหน้าแรก (ผู้ใช้ขอ 11 พ.ย.: เดิมโชว์แค่ 4 ขั้น ไม่มีประธานเซ็น) */
+const FLOW = [[['order'],'รับออเดอร์'], [['rail'],'แขวนที่ราว'], [['garden'],'เก็บกล้วย'], [['yard','fryer'],'ตาก/ทอด'],
+  [['shelf'],'พักบนชั้น'], [['pack'],'แพ็กถุง'], [['boss'],'ประธานเซ็น'], [['send'],'ส่งของ']];
 const V = {
 intro: () => `
   <div class="card center"><div class="strip">${sp('hero')}${sp('garden')}</div>
     <h1>บ้านกล้วยสร้างสรรค์</h1><p class="soft">Banana Land ตอนที่ 2</p>
     <p>ร้านของฝากสั่งกล้วยตาก แต่กลุ่มแม่บ้านส่งไม่ทัน และบางถุงก็แข็งเกิน<br>ลองเข้าไปทำงานในโรงเรือนดูว่าปัญหาอยู่ตรงไหน</p></div>
   <div class="card center">
-    <div class="strip">${sp('order')}<b>›</b>${sp('yard')}<b>›</b>${sp('pack')}<b>›</b>${sp('send')}</div>
-    <p>รับออเดอร์ · ทำ · แพ็ก · ส่ง</p>
-    <div class="strip">${sp('bag')}<b>กล้วยตาก</b>${sp('chips')}<b>กล้วยฉาบ</b></div>
-    <p class="soft">ตาก = ลานตาก · ฉาบ = กระทะทอด</p>
-    <p class="soft">กะละ 5 นาที นาฬิกาเดินจริง · แตะช่องเพื่อเดิน · ยืนที่จุดแล้วกดปุ่ม</p></div>
+    <p class="big2">ขั้นตอนทำงานตอนนี้ (SOP)</p>
+    <div class="flow">${FLOW.map(([ic,t],i)=>`<div class="fs"><div class="fi">${ic.map(n=>sp(n)).join('')}</div><span class="fn">${i+1}</span>${t}</div>`).join('')}</div>
+    <p class="soft">ของเสียต้องเก็บไปทิ้งที่ถังขยะ · มือเต็มวางพักบนโต๊ะได้</p>
+    <div class="strip">${sp('bagDry')}<b>กล้วยตาก</b>${sp('bagChips')}<b>กล้วยฉาบ</b></div>
+    <p class="soft">เล่น 3 กะ กะละ 4 นาที: กะ 1 กล้วยตากอย่างเดียว · กะ 2 เพิ่มกล้วยฉาบ · กะ 3 ออเดอร์ถล่ม<br>เงินที่ได้สะสมไปซื้ออัปเกรดกะถัดไป</p>
+    <p class="soft">นาฬิกาเดินตลอด แตะแผนที่หรือกดปุ่ม "เดินไป" แล้วกดปุ่มงานตอนยืนอยู่ที่จุด</p></div>
   <div class="card center"><p class="soft">ร้านของฝากขอ</p>
     <p class="big">“ภายใน ${RULE.onTime} วินาที และแห้งพอดีทุกถุง”</p>
-    <p class="soft">มีเหรียญหล่นเมื่อไร ให้สังเกตไว้</p>
+    <p class="soft">ถ้าช้าเกิน ${RULE.cancelAfter/60} นาที ลูกค้าจะยกเลิก<br>เหรียญหล่นทีไร ตัวละครจะบอกว่าเป็นความสูญเปล่าแบบไหน</p>
+    ${goalHTML(1)}
     <button class="go" onclick="go('play')">เริ่มกะ 1 ▶</button></div>`,
 play: playShell,
 arrange: arrangeView,
 pour: () => {
-  const opts = COINS.map(c=>`<option value="${c}">${MEAN[c][1]}</option>`).sort(()=>Math.random()-.5).join('');
-  return `<div class="card center"><h2>จบกะ 1 · เทเหรียญ!</h2>${stat(0)}</div>
-  <div class="card"><p class="soft center">ทายดูว่าแต่ละตัวแปลว่าอะไร</p><table>
-  ${COINS.filter(c=>s.coins[0][c]).map(c=>`<tr><td><span class="coin">${LABEL[c]}</span> ×${s.coins[0][c]}</td>
-    <td><select data-g="${c}"><option value="">?</option>${opts}</select></td></tr>`).join('')}</table></div>
-  <div class="center"><button class="go" onclick="saveGuess();go('reveal')">เฉลย ▶</button></div>`;
+  // จบกะ: เทเหรียญ (ผู้ใช้ขอ 12 พ.ย. สอนชื่อเหรียญตอนตกแล้ว จึงไม่มีทายชื่อ) เทียบกับกะก่อนถ้ามี
+  const i = s.shift-1, cur = s.coins[i], prev = i ? s.coins[i-1] : null;
+  const st = s.stats[i], ps = i ? s.stats[i-1] : null;
+  const starRow = `<div class="stars">${goalList(s.shift).map((t,k)=>`<span class="${st.stars[k]?'got':''}">${st.stars[k]?'★':'☆'} ${t}</span>`).join('')}</div>
+    ${st.bonus?`<p class="ok">ได้ ${st.stars.filter(Boolean).length} ดาว โบนัส +${st.bonus} ฿</p>`:'<p class="soft">ยังไม่ได้ดาว</p>'}`;
+  // ก่อน/หลัง (ผู้ใช้ขอ 12 พ.ย.): เทียบต่อออเดอร์ เพราะแต่ละกะออเดอร์ไม่เท่ากัน
+  const pp = (t,f) => f(t)/Math.max(1,t.total);
+  const cmp = (lab, a, b, lowGood, fmt) => { const better = lowGood ? b<a : b>a, same = Math.abs(a-b)<0.05;
+    return `<tr><td>${lab}</td><td>${fmt(a)}</td><td>→</td><td><b class="${same?'':better?'ok':'no'}">${fmt(b)}</b></td></tr>`; };
+  const ba = ps ? `<div class="card"><b>ก่อน / หลัง ปรับปรุง</b> <span class="soft">เทียบต่อ 1 ออเดอร์</span><table>
+    ${cmp('ก้าวเดิน', pp(ps,t=>t.steps), pp(st,t=>t.steps), true, x=>Math.round(x)+' ก้าว')}
+    ${cmp('เหรียญ', pp(ps,t=>t.coins), pp(st,t=>t.coins), true, x=>x.toFixed(1))}
+    ${cmp('ส่งทัน', pp(ps,t=>t.ok)*100, pp(st,t=>t.ok)*100, false, x=>Math.round(x)+'%')}</table>
+    <p class="soft">กะ ${s.shift} ${RULE.rounds[i].name} งานยากขึ้น ถ้าตัวเลขยังดีขึ้น แปลว่าที่ปรับไปได้ผล</p></div>` : '';
+  return `<div class="card center"><h2>จบกะ ${s.shift} · เทเหรียญ!</h2>${stat(i)}${starRow}<p class="px">เงินในร้าน ${s.cash} ฿</p></div>${ba}
+  <div class="card"><table><tr><th></th><th>ความสูญเปล่า</th>${prev?`<th>กะ ${i}</th>`:''}<th>กะ ${s.shift}</th><th>เกิดจาก</th></tr>
+  ${COINS.filter(c=>cur[c]||(prev&&prev[c])).map(c=>{ const ex=s.log[i].find(t=>t.includes(LABEL[c]+' · '));
+    return `<tr><td><span class="coin">${LABEL[c]}</span></td><td><b>${MEAN[c][1]}</b><br><small class="soft">${MEAN[c][0]}</small></td>${prev?`<td>${prev[c]||0}</td>`:''}<td><b>${cur[c]||0}</b></td><td class="soft">${ex?ex.split(' · ')[1]:''}</td></tr>`;}).join('')}
+  </table></div>
+  <div class="center"><button class="go" onclick="go('${i?'improve':'analyse'}')">${i?'ไปร้านอัปเกรด':'ต่อ'} ▶</button></div>`;
 },
 reveal: () => `
-  <div class="card center"><h2>DOWNTIME · ความสูญเปล่า 8 แบบ</h2><p class="soft">ทุกเหรียญ = งานที่ร้านของฝากไม่ได้อะไรเลย</p></div>
+  <div class="card center"><h2>DOWNTIME · ความสูญเปล่า 8 แบบ</h2><p class="soft">ทุกเหรียญคืองานที่ทำไปแล้วร้านของฝากไม่ได้อะไรเลย</p></div>
   <div class="card"><table>${COINS.map(c=>{ const ex=s.log[0].find(t=>t.includes(LABEL[c]+' · ')); const g=s.guesses[c];
     return `<tr><td><span class="coin">${LABEL[c]}</span></td><td><b>${MEAN[c][0]}</b><br><small class="soft">${MEAN[c][1]}</small></td>
     <td class="soft">${ex?ex.split(' · ')[1]:''}</td><td>${g===undefined?'':g===c?'<span class="ok">✓</span>':'<span class="no">✗</span>'}</td></tr>`;}).join('')}
@@ -916,61 +1358,79 @@ analyse: () => {
   return `<div class="card center"><h2>ตัวไหนทำให้เกิดตัวไหน?</h2><p class="soft">แก้ที่ต้นเหตุ ปลายเหตุจะลดเอง (5 Whys)</p></div>
   <div class="card">${Lk.map(([a,b,t])=>`<div class="row" style="padding:6px 0;border-bottom:3px dotted var(--line)">
     <span class="coin">${LABEL[a]}</span> › <span class="coin">${LABEL[b]}</span> <span>${t}</span>
-    <span class="soft" style="margin-left:auto">${s.coins[0][a]} → ${s.coins[0][b]}</span></div>`).join('')}</div>
+    <span class="soft" style="margin-left:auto">${s.coins[s.shift-1][a]} → ${s.coins[s.shift-1][b]}</span></div>`).join('')}</div>
   <div class="center"><button class="go" onclick="go('improve')">ไปร้านอัปเกรด ▶</button></div>`;
 },
 improve: () => {
-  const b = budget(), u = spent();
-  const fixRow = c => { const [e,p,what,cost]=FIX[c], on=s.fixes.has(c); return `<label class="pick ${on?'on':''}">
-    <input type="checkbox" ${on?'checked':''} onchange="buy('${c}')"><span class="coin">${LABEL[c]}</span>
-    <span style="width:32px;height:32px;display:inline-block;flex:none">${sp(e)}</span>
-    <span style="flex:1"><b>${p}</b> <span class="soft">(กะ 1 ได้ ×${s.coins[0][c]})</span><small>${what}${cost!=='—'?' · แลก: '+cost:''}</small></span>
-    <b class="px">${PRICE[c]}฿</b></label>`; };
-  const gearRow = k => { const g=GEAR[k], on=s.equip.has(k); return `<label class="pick ${on?'on':''}">
-    <input type="checkbox" ${on?'checked':''} onchange="buy('${k}')"><span class="chip" style="font-size:11px">อุปกรณ์</span>
-    <span style="width:32px;height:32px;display:inline-block;flex:none">${sp(g.spr)}</span>
-    ${g.tags.length?g.tags.map(c=>`<span class="coin">${LABEL[c]}</span>`).join(''):'<span class="chip" style="background:#888;font-size:11px">ไม่ลดเหรียญ</span>'}
-    <span style="flex:1"><b>${g.name}</b><small>${g.what} · ${g.hint}</small></span><b class="px">${g.price}฿</b></label>`; };
+  // ร้านเต็ม เห็นของทุกชิ้น ไม่มีสุ่ม (ผู้ใช้ขอ 12 พ.ย.) · การ์ดบอกเงินที่เสียจริงกะที่แล้ว + คืนทุนกี่กะ
+  // เรียงตามเงินที่เสีย ติดป้ายตัวที่เสียมากสุด (Pareto) · ซื้อแล้วการ์ดโดนประทับตรา เหรียญที่แก้แล้วในโหลจาง
+  const now = spentAt(s.shift), last = s.coins[s.shift-1], left = RULE.rounds.length - s.shift;
+  const items = [...COINS.filter(c=>!['I','S','O2'].includes(c)), ...Object.keys(GEAR)];
+  const tagsOf = k => k in PRICE ? [k] : GEAR[k].tags;
+  const owned = k => (k in PRICE ? s.fixes : s.equip).has(k), oldBuy = k => owned(k) && s.bought[k]!==s.shift;
+  const covered = new Set(items.filter(owned).flatMap(tagsOf));
+  const coverOther = k => new Set(items.filter(j=>j!==k && owned(j)).flatMap(tagsOf));   // เหรียญที่ของชิ้นอื่นแก้ไปแล้ว ไม่นับซ้ำ
+  const lossOf = k => { const o = coverOther(k); return tagsOf(k).filter(c=>!o.has(c)).reduce((n,c)=>n+(last[c]||0),0)*RULE.coinCost; };
+  const fixable = [...new Set(items.flatMap(tagsOf))].filter(c=>!covered.has(c) && (last[c]||0)>0);
+  const top = fixable.sort((a,b)=>(last[b]||0)-(last[a]||0))[0];
+  const just = s.justBought ? tagsOf(s.justBought) : [];
+  const card = k => { const fix = k in PRICE, on = owned(k), old = oldBuy(k), price = priceOf(k), loss = lossOf(k), tags = tagsOf(k);
+    const [icon, name, what, cost] = fix ? [FIX[k][0], FIX[k][1], FIX[k][2], FIX[k][3]] : [GEAR[k].spr, GEAR[k].name, GEAR[k].what, GEAR[k].hint];
+    const pay = !tags.length ? '<span class="soft">ไม่ลดเหรียญตัวไหน</span>'
+      : !loss && tags.every(c=>coverOther(k).has(c)) ? '<span class="soft">เหรียญนี้มีของชิ้นอื่นแก้ไปแล้ว</span>'
+      : !loss ? '<span class="soft">กะที่แล้วไม่เจอเหรียญนี้</span>'
+      : `กะที่แล้วเสีย <b>${loss/RULE.coinCost} เหรียญ = ${loss} ฿</b>`;   // ไม่บอกคืนทุนกี่กะ ให้คิดเอง (ผู้ใช้ขอ 12 พ.ย.)
+    return `<label class="pick shop ${on?'on':''} ${tags.includes(top)&&!on?'top':''} ${s.justBought===k?'stamp':''}">
+      <input type="checkbox" ${on?'checked':''} ${old?'disabled':''} onchange="buy('${k}')">
+      <span style="width:32px;height:32px;display:inline-block;flex:none">${sp(icon)}</span>
+      ${tags.map(c=>`<span class="coin">${LABEL[c]}</span>`).join('') || '<span class="chip" style="background:#888;font-size:11px">อุปกรณ์</span>'}
+      <b class="px" style="margin-left:auto">${price}฿</b>
+      <span style="flex:1"><b>${name}</b>${tags.includes(top)&&!on?' <span class="topb">⭐ อันดับ 1 ของคุณ</span>':''}${old?' <span class="soft">· มีแล้ว</span>':''}
+        <small>${what}${cost && cost!=='—' ? (fix?' · แลก: ':' · ')+cost : ''}</small><small class="pay">${pay}</small></span>
+      ${on?`<span class="stampmark">${old?'มีแล้ว':'ซื้อแล้ว'}</span>`:''}</label>`; };
+  const sorted = items.slice().sort((a,b)=>(owned(a)-owned(b)) || (lossOf(b)-lossOf(a)) || (priceOf(a)-priceOf(b)));
+  const tray = COINS.filter(c=>last[c]).map(c=>`<span class="tc ${covered.has(c)?'gone':''} ${just.includes(c)?'go':''}"><span class="coin">${LABEL[c]}</span>×${last[c]}</span>`).join('');
   return `<div class="card center"><h2>ร้านอัปเกรด</h2>
-    <p class="big px">ใช้ไป ${u} / งบ ${b} ฿</p>
-    <p class="soft">ทุกบาทที่ซื้อ หักจากกำไรกะ 2 · เหรียญ 1 เหรียญ = ${RULE.coinCost} ฿ · ส่งทัน 1 ถุง = ${RULE.bagPrice} ฿</p>
-    <p class="soft">ซื้อเฉพาะที่คิดว่าคุ้ม ดูกองเหรียญตัวเองก่อน</p></div>
+    <p class="big px">เงินในร้าน ${s.cash} ฿</p>
+    <p class="soft">ซื้อตอนนี้ ${now} ฿ (กดอีกครั้งคืนเงินได้ก่อนเริ่มกะ) · ของที่ซื้อกะก่อนติดตัวไปตลอด<br>เหลืออีก ${left} กะ · ส่งทันถุงละ ${RULE.bagPrice} ฿ เหรียญละ ${RULE.coinCost} ฿</p>
+    <div class="tray"><b>เหรียญกะ ${s.shift}</b>${tray || '<span class="soft">ไม่มีเหรียญ</span>'}</div></div>
   ${s.ideas.length?`<div class="card">ไอเดียที่ประธานไม่ให้ทำ: ${s.ideas.map(esc).join(' · ')}</div>`:''}
-  <div class="card"><b>ปรับวิธีทำงาน</b></div>${COINS.filter(c=>!['I','S','O2'].includes(c)).map(fixRow).join('')}
-  <div class="card"><b>ซื้ออุปกรณ์ / จ้างคนนอก</b></div>${Object.keys(GEAR).map(gearRow).join('')}
-  <div class="center">${u>b?'<p class="no">ใช้เกินงบ เอาของออกก่อน</p>':''}<button class="go" onclick="go('arrange')" ${u>b?'disabled':''}>ต่อ ▶</button></div>`;
+  ${sorted.map(card).join('')}
+  <div class="center"><button class="go" onclick="s.justBought=null;go('arrange')">${now?'ต่อ':'ไม่ซื้อ เก็บเงินไว้'} ▶</button></div>`;
 },
 sop: () => {
   if(!s.sop.some(x=>x.trim())) s.sop=[...[...s.fixes].map(f=>FIX[f][2]), ...[...s.equip].map(k=>GEAR[k].what), '', '', ''].slice(0,3);
   return `<div class="card center"><h2>SOP 3 บรรทัด</h2><p class="soft">ใครมาทำก็ทำแบบเดียวกัน</p></div>
   <div class="card">${s.sop.map((x,i)=>`<p>${i+1}. <input type="text" style="width:88%" value="${esc(x)}" oninput="s.sop[${i}]=this.value"></p>`).join('')}</div>
-  <div class="center"><button class="go" onclick="s.shift=2;go('play')">เริ่มกะ 2 ▶</button></div>`;
+  <div class="center">${goalHTML(s.shift+1)}<button class="go" onclick="s.shift++;go('play')">เริ่มกะ ${s.shift+1} ▶</button></div>`;
 },
 debrief: () => {
-  const a=s.coins[0], b=s.coins[1], sum=(o,set)=>set.reduce((n,c)=>n+o[c],0);
-  // จัดร้านใหม่เอง (ย้ายจุดใดก็ได้) = แก้ T ด้วย แม้ไม่ได้ซื้อข้อ T
+  // สรุป 3 กะ (ผู้ใช้ขอ 12 พ.ย.) แต่ละกะออเดอร์ไม่เท่ากัน จึงเทียบเป็น "เหรียญต่อออเดอร์" และ % ส่งทัน
+  const n = RULE.rounds.length, rs = [...Array(n).keys()], st = rs.map(i=>s.stats[i]||{ok:0,total:0,coins:0,score:0});
+  const per = (i,set) => { const t=Math.max(1,st[i].total); return (set.reduce((m,c)=>m+(s.coins[i][c]||0),0)/t).toFixed(1); };
   const moved = MOVABLE.some(k=>key(...s.layout[k])!==key(...START[k])) || s.equip.has('consult');
   const fixed = c => s.fixes.has(c) || (c==='T' && moved);
   const fx=COINS.filter(fixed), un=COINS.filter(c=>!fixed(c));
-  const dl = n => n>=0 ? '−'+n : '+'+(-n);
-  const dF=sum(a,fx)-sum(b,fx), dU=sum(a,un)-sum(b,un);
-  return `<div class="card center"><h2>สรุป 2 กะ</h2><div class="row" style="justify-content:center;gap:24px">${stat(0)}${stat(1)}</div></div>
-  <div class="card"><table><tr><th></th><th>กะ 1</th><th>กะ 2</th><th></th></tr>
-  ${COINS.map(c=>`<tr><td><span class="coin">${LABEL[c]}</span></td><td>${a[c]}</td><td>${b[c]}</td><td>${fixed(c)?'<b class="ok">ปรับ</b>':''}</td></tr>`).join('')}
-  <tr><th>ที่ปรับ</th><th>${sum(a,fx)}</th><th>${sum(b,fx)}</th><th>${dl(dF)}</th></tr>
-  <tr><th>ไม่ได้ปรับ</th><th>${sum(a,un)}</th><th>${sum(b,un)}</th><th>${dl(dU)}</th></tr></table>
-  <p class="center soft">ไม่ได้ปรับลด = ความคล่อง · ที่ปรับลด${dF>dU?'มากกว่า = <b class="ok">ระบบดีขึ้น</b>':'ไม่มากกว่า = <b class="no">ลองเลือกแก้ที่ต้นเหตุ</b>'}</p></div>
-  <div class="card"><b>ใช้เงินไป ${spent()} ฿</b> · ปรับวิธีทำงาน ${[...s.fixes].reduce((n,k)=>n+PRICE[k],0)} ฿ · อุปกรณ์/จ้างคนนอก ${[...s.equip].reduce((n,k)=>n+GEAR[k].price,0)} ฿
+  const pct = i => st[i].total ? Math.round(st[i].ok/st[i].total*100)+'%' : '–';
+  return `<div class="card center"><h2>สรุป 3 กะ</h2><div class="row" style="justify-content:center;gap:20px">${rs.map(stat).join('')}</div>
+    <p class="big">เงินในร้านตอนจบ <span class="${s.cash>=RULE.budget?'ok':'no'}">${s.cash} ฿</span></p><p class="soft">เริ่มต้น ${RULE.budget} ฿</p></div>
+  <div class="card"><table><tr><th></th>${rs.map(i=>`<th>กะ ${i+1}<br><small class="soft" style="white-space:nowrap">${RULE.rounds[i].short}</small></th>`).join('')}<th></th></tr>
+  ${COINS.map(c=>`<tr><td><span class="coin">${LABEL[c]}</span></td>${rs.map(i=>`<td>${s.coins[i][c]||0}</td>`).join('')}<td>${fixed(c)?'<b class="ok">ปรับ</b>':''}</td></tr>`).join('')}
+  <tr><th>ส่งทัน</th>${rs.map(i=>`<th>${pct(i)}</th>`).join('')}<th></th></tr>
+  <tr><th>เหรียญต่อออเดอร์ (ที่ปรับ)</th>${rs.map(i=>`<th>${per(i,fx)}</th>`).join('')}<th></th></tr>
+  <tr><th>เหรียญต่อออเดอร์ (ไม่ได้ปรับ)</th>${rs.map(i=>`<th>${per(i,un)}</th>`).join('')}<th></th></tr></table>
+  <p class="center soft">กะ 2 เพิ่มกล้วยฉาบ กะ 3 ออเดอร์มากขึ้น ดูเป็น "ต่อออเดอร์" จะเทียบกันได้แฟร์กว่ายอดรวม<br>ถ้าเหรียญตัวที่ปรับลดลงต่อเนื่องแม้งานยากขึ้น แปลว่า<b class="ok">ระบบดีขึ้นจริง</b></p></div>
+  <div class="card"><b>ซื้อของไปทั้งหมด ${spent()} ฿</b>
     ${[...s.equip].map(k=>`<p>${GEAR[k].name}: <span class="soft">${GEAR[k].lesson}</span></p>`).join('') || '<p class="soft">ไม่ได้ซื้ออุปกรณ์ แก้ด้วยการปรับวิธีทำงานอย่างเดียว</p>'}
     <p class="soft">Lean: ปรับวิธีทำงานก่อน ค่อยซื้อของ</p></div>
   <div class="card center"><p class="big">ปัญหาอยู่ที่ระบบ ไม่ใช่ที่คน</p>
-    <p class="soft">ในมหาลัยเจอเหรียญตัวไหนบ้าง? คิวโรงอาหาร · รอเพื่อนส่งงาน · ปริ้นท์เผื่อ · กรอกฟอร์มผิด</p>
+    <p class="soft">ในมหาลัยเจอเหรียญตัวไหนบ้าง? เช่น ต่อคิวโรงอาหาร รอเพื่อนส่งงาน ปริ้นท์เผื่อ กรอกฟอร์มผิด</p>
     <button onclick="s=fresh();go('intro')">เล่นใหม่</button></div>`;
 }
 };
 function stat(i){ const t=s.stats[i]; if(!t) return '';
-  return `<div><p class="soft">กะ ${i+1} · กำไร</p><p class="big ${t.score<0?'no':'ok'}">${t.score} ฿</p>
-    <p class="soft">ส่งทัน ${t.ok}/${t.total} +${t.income} · waste ${t.coins} เหรียญ −${t.waste}${t.buyCost?` · ซื้อของ −${t.buyCost}`:''}</p></div>`; }
+  return `<div><p class="soft">กะ ${i+1} · กำไรกะนี้ ${t.stars?t.stars.map(x=>x?'★':'☆').join(''):''}</p><p class="big ${t.score<0?'no':'ok'}">${t.score} ฿</p>
+    <p class="soft">ส่งทัน ${t.ok}/${t.total} +${t.income} · waste ${t.coins} เหรียญ −${t.waste}${t.buyCost?` · ซื้อของ −${t.buyCost}`:''}${t.bonus?` · ดาว +${t.bonus}`:''}</p>${t.cancelled?`<p class="no">ลูกค้ายกเลิก ${t.cancelled} ใบ</p>`:''}</div>`; }
 function esc(t){ return String(t).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
 function saveGuess(){ document.querySelectorAll('[data-g]').forEach(el=>{ if(el.value) s.guesses[el.dataset.g]=el.value; }); }
 function go(v){ if(v==='play') startShift(); screen=v; render(); window.scrollTo(0,0); }
